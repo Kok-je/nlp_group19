@@ -19,7 +19,7 @@ if __name__ == "__main__":
     client, model_name = initialize_model(MODEL_NAME)
 
     result = client.token_classification(
-        text="My name is Shawn Kok but you can call me Captain America.",
+        text="My name is Shawn Kok but you can call me Captain NLP.",
         model=model_name
     )
 
