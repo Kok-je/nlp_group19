@@ -2,7 +2,6 @@ import json
 import os
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
-from transformers import pipeline
 
 load_dotenv()
 
