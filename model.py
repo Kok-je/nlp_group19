@@ -2,16 +2,19 @@ import json
 import os
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
+from together import Together
 
 load_dotenv()
 
 def initialize_model(model_name: str):
     api_key = os.getenv('HUGGINGFACE_API_KEY')
+    together_api_key = os.getenv("TOGETHER_API_KEY")
     
-    if not api_key:
+    if not api_key or together_api_key:
         raise ValueError("No API key found. Please set the HUGGINGFACE_API_KEY environment variable.")
     
-    client = InferenceClient(provider="hf-inference", api_key=api_key)
+    # client = InferenceClient(provider="hf-inference", api_key=api_key)
+    client = Together(api_key=together_api_key)
     return client, model_name
 
 def call_llm(client, model_name, section_name, content):
@@ -33,7 +36,7 @@ def call_llm(client, model_name, section_name, content):
                  "Example output would look like: {\"classification\": \"background or result or method\", \"reasoning\": \"This is the reasoning\"}"
     }, 
     {"role": "user", "content": f"section name: {section_name}, text: {content}"}]
-    response = client.chat_completion(model="meta-llama/Meta-Llama-3-8B-Instruct", messages=messages, max_tokens=2048)
+    response = client.chat.completions.create(model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free", messages=messages, max_tokens=2048)
 
     # parse response which is a json
     try:
