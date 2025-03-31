@@ -1,5 +1,4 @@
 .env
 *.pyc
-*.csv
 *.txt
 __pycache__/
