@@ -10,7 +10,7 @@ def initialize_model(model_name: str):
     api_key = os.getenv('HUGGINGFACE_API_KEY')
     together_api_key = os.getenv("TOGETHER_API_KEY")
     
-    if not api_key or together_api_key:
+    if not api_key and not together_api_key:
         raise ValueError("No API key found. Please set the HUGGINGFACE_API_KEY environment variable.")
     
     # client = InferenceClient(provider="hf-inference", api_key=api_key)
