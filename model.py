@@ -62,7 +62,7 @@ def call_llm(client, model_name, section_name, content):
 
 
 if __name__ == "__main__":
-    MODEL_NAME = "dslim/bert-base-NER"
+    MODEL_NAME = "google/gemma-2-27b-it"
 
     client, model_name = initialize_model(MODEL_NAME)
 
