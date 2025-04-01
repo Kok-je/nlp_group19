@@ -76,8 +76,14 @@ class ModelReport:
 
     def display_report(self):
 
+        print("="*50)
+        print("Model Metrics Report")
+        print("="*50)
+
         print(f"Accuracy: {self.accuracy():.2f}")
         print(f"Macro Accuracy: {self.macro_average(self.accuracy):.2f}")
+
+        print("="*50)
 
         # ⚠️ Most likely meaningless
         print(f"Micro Accuracy: {self.micro_average(self.accuracy):.2f}")
@@ -85,9 +91,25 @@ class ModelReport:
         print(f"Macro Precision: {self.macro_average(self.precision):.2f}")
         print(f"Micro Precision: {self.micro_average(self.precision):.2f}")
 
+        print("="*50)
+
         print(f"Macro Recall: {self.macro_average(self.recall):.2f}")
         print(f"Micro Recall: {self.micro_average(self.recall):.2f}")
+
+        print("="*50)
 
         print(f"Macro F1: {self.macro_average(self.f1_score):.2f}")
         print(f"Micro F1: {self.micro_average(self.f1_score):.2f}")
 
+
+def evaluate(model, cache=True):
+
+
+def evaluate_models(models):
+    # get train data
+    # get test data
+    for model in models:
+        evaluate(model)
+        print(model)
+
+# plot models against baseline
