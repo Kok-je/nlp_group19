@@ -33,6 +33,7 @@ class ModelCard:
         self.price = price
         self.size = size
         self.file_path = file_path
+        self.report = None
 
     def display_card(self):
         """Display the model card information in a formatted way."""
@@ -41,4 +42,5 @@ class ModelCard:
         print(self.description)
         print(f"Author: {self.author}")
         print(f"Price ($/M tokens): {self.price}")
-        print(f"Size (Billion Parameters): {self.size}")
+        print(f"Size (Billion Parameters): {self.size}")f
+        print(f"Report: {self.report}")
