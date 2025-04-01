@@ -35,12 +35,19 @@ class ModelCard:
         self.file_path = file_path
         self.report = None
 
-    def display_card(self):
+    def display_card(self, verbose = False):
         """Display the model card information in a formatted way."""
-        print(f"Model: {self.model_name}")
-        print(f"Version: {self.version}")
-        print(self.description)
-        print(f"Author: {self.author}")
-        print(f"Price ($/M tokens): {self.price}")
-        print(f"Size (Billion Parameters): {self.size}")f
+        print(f"{self.author} - {self.model_name} {self.version}")
+        print(f"Size: {self.size} Billion Parameters")
+        print(f"Price: ${self.price}/M tokens")
         print(f"Report: {self.report}")
+
+
+        if verbose:
+            print(f"Model: {self.model_name}")
+            print(f"Version: {self.version}")
+            print(self.description)
+            print(f"Author: {self.author}")
+            print(f"Price: ${self.price}/M tokens")
+            print(f"Size: {self.size} Billion Parameters")
+            print(f"Report: {self.report}")

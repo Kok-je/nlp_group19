@@ -1,5 +1,7 @@
 import pandas as pd
 
+from model_card import ModelCard
+
 
 class ModelReport:
     def __init__(self, train, test):
@@ -102,14 +104,31 @@ class ModelReport:
         print(f"Micro F1: {self.micro_average(self.f1_score):.2f}")
 
 
-def evaluate(model, cache=True):
-
+def evaluate(model : ModelCard, cache=True):
+    if cache and model.report:
+        print("⚠️ Using cached report ⚠️")
+        return
+    # evaluate model
 
 def evaluate_models(models):
     # get train data
     # get test data
     for model in models:
         evaluate(model)
-        print(model)
+        model.display_card()
+        print("="*50)
 
 # plot models against baseline
+
+def main():
+    model_list = [
+        ModelCard("Gemma", "2", "Google's largest latest open source model.",
+                  "Google", 0, 27, "results/Gemma2_27b/output.csv"),
+        ModelCard("Llama", "3.3 Instruct Turbo", "Meta's latest open source model.",
+                  "Meta", 0, 70, "results/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free/output.csv"),
+    ]
+    evaluate_models(model_list)
+
+
+if __name__ == "__main__":
+    main()
