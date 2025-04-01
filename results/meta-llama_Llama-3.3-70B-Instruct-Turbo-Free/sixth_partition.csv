@@ -1,4 +1,4 @@
-,id,classification,reasoning
+,id,model_classification,reasoning
 0,27db8d3a2c85cbc34deef51ce4cd850b431b4b34>a81b383bf01b572d28e1566650d938a6fe414e57_3,background,"Although the section name is 'Results', the text provided is discussing previous research and its findings, which is a characteristic of a background section. It mentions a specific study (Vander Heiden et al., 2000, 2001) and explains its implications, setting the stage for the current research rather than presenting new results."
 1,45389b607544d07ecb6d94e3a4ae3da794b0bb77>84c2d7f63fbb5d38f9c2a7b31b5fba622cb2b67f_0,method,"The text mentions 'EXPERIMENTS' which is a common term used in scientific papers to describe the methodology or approach used to test a hypothesis or validate results, indicating that this section is discussing the methods used in the research."
 2,55294c3cfc8a43921fb1a604c21d33f524a64927>289696559940533f5bb515e1a7ce83211c3934c8_6,method,"The text describes the implementation of a specific approach, mentioning the use of parameters from a mathematical model as a starting point, which suggests a step-by-step explanation of how something was done, typical of a methods section."
