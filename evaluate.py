@@ -104,17 +104,21 @@ class ModelReport:
         print(f"Micro F1: {self.micro_average(self.f1_score):.2f}")
 
 
-def evaluate(model : ModelCard, cache=True):
+
+
+def evaluate(model : ModelCard,test,cache=True):
     if cache and model.report:
         print("⚠️ Using cached report ⚠️")
         return
-    # evaluate model
+    fit = pd.read_csv(model.file_path)["model_classification"]
+    return ModelReport(fit,test)
 
-def evaluate_models(models):
+def evaluate_models(models, file_path="./data/train.jsonl"):
     # get train data
     # get test data
+    test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
     for model in models:
-        evaluate(model)
+        evaluate(model,test)
         model.display_card()
         print("="*50)
 
