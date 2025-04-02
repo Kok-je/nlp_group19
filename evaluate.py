@@ -130,9 +130,16 @@ def main():
                   "Google", 0, 27, "results/Gemma2_27b/output.csv"),
         ModelCard("Llama", "3.3 Instruct Turbo", "Meta's latest open source model.",
                   "Meta", 0, 70, "results/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free/output.csv"),
+        ModelCard("Random", "Indiscriminate", "Random model.", "Nikhil",
+                  0, 0,"results/Completely_random/output.csv"),
+        ModelCard("Random", "Proportional", "Random model.", "Nikhil",
+                  0, 0,"results/Proportionally_random/output.csv"),
+        ModelCard("Single Class", "Majority", "Why even try.", "Nikhil",
+                  0, 0,"results/Majority/output.csv"),
+        ModelCard("Gemma", "2 Cleaned", "Google's largest latest open source model.",
+                  "Google", 0, 27, "results/Gemma2_27b_clean/output.csv"),
     ]
     evaluate_models(model_list)
-    print(model_list[1].report.table)
 
 
 if __name__ == "__main__":
