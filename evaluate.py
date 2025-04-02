@@ -1,4 +1,6 @@
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 from model_card import ModelCard
 
@@ -73,9 +75,6 @@ class ModelReport:
         """
         return (fn(self.table1) + fn(self.table2) + fn(self.table3))/3
 
-
-
-
     def display_report(self):
 
         print("="*50)
@@ -102,10 +101,6 @@ class ModelReport:
         print(f"Macro Precision: {self.macro_average(self.precision):.2f}")
         print(f"Micro Precision: {self.micro_average(self.precision):.2f}")
 
-
-
-
-
 def evaluate(model : ModelCard,test,cache=True):
     if cache and model.report:
         print("⚠️ Using cached report ⚠️")
@@ -113,18 +108,143 @@ def evaluate(model : ModelCard,test,cache=True):
     fit = pd.read_csv(model.file_path)["model_classification"]
     model.report = ModelReport(test,fit)
 
-def evaluate_models(models, file_path="./data/train.jsonl"):
+def plot_reports(models, plot):
+    if not plot:
+        return
+
+    model_names = []
+    macro_f1 = []
+    model_sizes = []
+    authors = []
+    baselines = []
+
+    if plot == "full":
+        accuracies = []
+
+    for model in models:
+        if model.size == 0:
+            baselines.append(model)
+        else:
+            model_names.append(model.model_name + " " + model.version)
+            macro_f1.append(model.report.macro_average(model.report.f1_score))
+            model_sizes.append(model.size)
+            authors.append(model.author)
+            if plot == "full":
+                accuracies.append(model.report.accuracy())
+
+    df = pd.DataFrame({
+        'Model Name': model_names,
+        'Size': model_sizes,
+        'Macro F1 Score': macro_f1,
+        'Author': authors
+    })
+
+    plt.figure(figsize=(12, 8))
+
+    # Create the scatterplot
+    ax = sns.scatterplot(
+        data=df,
+        x='Size',
+        y='Macro F1 Score',
+        hue='Author',
+        alpha=0.9,
+        palette='viridis'
+    )
+
+    for _, row in df.iterrows():
+        plt.text(
+            row['Size'] * 1.05,
+            row['Macro F1 Score'],
+            row['Model Name'],
+            fontsize=9,
+            alpha=0.8
+        )
+
+    #Add Base Lines
+    for model in baselines:
+        # Add a horizontal line for the baseline model
+        plt.axhline(
+            y=model.report.macro_average(model.report.f1_score),
+            color='red',
+            linestyle='--',
+            label=f"{model.model_name} {model.version} (Baseline)"
+        )
+
+    # Set the title and labels
+    plt.title('Large Language Model Performance: Macro F1 Score vs Model Size by Author', fontsize=16, pad=20)
+    plt.xlabel('Model Size (Billions of Parameters)', fontsize=14)
+    plt.ylabel('Macro F1 Score', fontsize=14)
+
+    # use the range of F1 scores to set appropriate y-axis limits
+    y_min = max(0, min(macro_f1) - 0.05)
+    y_max = min(1.0, max(macro_f1) + 0.05)
+    plt.ylim(y_min, y_max)
+
+    # if we have a wide range of model sizes
+    size_range = max(model_sizes) / max(min(model_sizes),1)
+    if size_range > 10:
+        # Use logarithmic scale for x-axis if sizes vary widely
+        plt.xscale('log')
+        plt.xlim(min(model_sizes) * 0.8, max(model_sizes) * 1.2)
+
+    # Add gridlines for better readability
+    plt.grid(True, linestyle='--', alpha=0.7)
+
+    # Add annotations to explain the plot
+    plt.figtext(
+        0.5, 0.01,
+        "Figure 1: Relationship between model size and macro F1 score across different language models.\n" +
+        ("Note: Model size is displayed on a logarithmic scale due to the wide range of values." if size_range > 10 else ""),
+        ha='center',
+        fontsize=11,
+        bbox=dict(boxstyle='round,pad=0.5', facecolor='white', alpha=0.5)
+    )
+
+    # Improve the legend
+    plt.legend(
+        title='Model Developer',
+        loc='best',
+        frameon=True,
+        framealpha=0.9
+    )
+
+    # Adjust layout to make room for annotations
+    plt.tight_layout(rect=(0.0, 0.05, 1.0, 0.95))
+
+    # Show the plot
+    plt.show()
+
+    sns.barplot(df, x='Model Name', y='Macro F1 Score', hue='Size', palette='viridis')
+    plt.xlabel('Model Name', fontsize=14)
+    plt.ylabel('Macro F1 Score', fontsize=14)
+
+    #Add Base Lines
+    for model in baselines:
+        # Add a horizontal line for the baseline model
+        plt.axhline(
+            y=model.report.macro_average(model.report.f1_score),
+            color='red',
+            linestyle='--',
+            label=f"{model.model_name} {model.version} (Baseline)"
+        )
+    plt.title('Macro F1 Score by Model Name', fontsize=16)
+    plt.show()
+
+
+def evaluate_models(models, plot = False, file_path="./data/train.jsonl"):
     # get train data
     # get test data
-    test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
+    test = pd.read_json(path_or_buf=file_path, lines=True)["label"].reset_index(drop=True)
     for model in models:
         evaluate(model,test)
         model.display_card()
         print("="*50)
 
-# plot models against baseline
+    # plot reports
+    plot_reports(models, plot)
 
 def main():
+    plt.style.use("dark_background")
     model_list = [
         ModelCard("Gemma", "2", "Google's largest latest open source model.",
                   "Google", 0, 27, "results/Gemma2_27b/output.csv"),
@@ -137,9 +257,11 @@ def main():
         ModelCard("Single Class", "Majority", "Why even try.", "Nikhil",
                   0, 0,"results/Majority/output.csv"),
         ModelCard("Gemma", "2 Cleaned", "Google's largest latest open source model.",
-                  "Google", 0, 27, "results/Gemma2_27b_clean/output.csv"),
+                  "Google", 0, 27, "results/Gemma2_27b_clean/output.csv")
+        # ModelCard("Gemma","2 No Section Name","experimenting with no section",
+        #           "Google",0,27,"results/Gemma2_27b_nosectionname/fourth_partition.csv")
     ]
-    evaluate_models(model_list)
+    evaluate_models(model_list,"brief")
 
 
 if __name__ == "__main__":
