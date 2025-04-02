@@ -12,7 +12,7 @@ def initialize_model(model_name: str, defined_api_key: str = None):
     novita_api_key = os.getenv("NOVITA_API_KEY")
 
     if defined_api_key: # if we have a defined api key, we don't need to use the environment variables
-        together_api_key = defined_api_key
+        novita_api_key = defined_api_key
     else:
         together_api_key = os.getenv("TOGETHER_API_KEY")
     
