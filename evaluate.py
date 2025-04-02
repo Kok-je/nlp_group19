@@ -7,19 +7,19 @@ class ModelReport:
     def __init__(self, train, test):
         # [[TP, FN],[FP, TN]]
         self.table = pd.crosstab(train,test)
-        self.table1 = [[self.table[0,0], self.table[0,1] + self.table[0,2]],
-                       [self.table[1,0] + self.table[2,0], self.table[1,1] + self.table[1,2] + self.table[2,1] + self.table[2,2]]]
-        self.table2 = [[self.table[1,1], self.table[1,0] + self.table[1,2]],
-                       [self.table[0,1] + self.table[2,1], self.table[0,0] + self.table[2,2] + self.table[0,2] + self.table[2,0]]]
-        self.table3 = [[self.table[2,2], self.table[2,1] + self.table[2,0]],
-                       [self.table[1,2] + self.table[0,2], self.table[1,1] + self.table[1,0] + self.table[0,1] + self.table[0,0]]]
+        self.table1 = [[self.table.iat[0,0], self.table.iat[0,1] + self.table.iat[0,2]],
+                       [self.table.iat[1,0] + self.table.iat[2,0], self.table.iat[1,1] + self.table.iat[1,2] + self.table.iat[2,1] + self.table.iat[2,2]]]
+        self.table2 = [[self.table.iat[1,1], self.table.iat[1,0] + self.table.iat[1,2]],
+                       [self.table.iat[0,1] + self.table.iat[2,1], self.table.iat[0,0] + self.table.iat[2,2] + self.table.iat[0,2] + self.table.iat[2,0]]]
+        self.table3 = [[self.table.iat[2,2], self.table.iat[2,1] + self.table.iat[2,0]],
+                       [self.table.iat[1,2] + self.table.iat[0,2], self.table.iat[1,1] + self.table.iat[1,0] + self.table.iat[0,1] + self.table.iat[0,0]]]
     def accuracy(self):
         """
         Calculate accuracy from confusion matrix (crosstab).
         Accuracy = (True predictions) / (Total predictions)
         """
         # Sum of the diagonal elements (correct predictions)
-        correct_predictions = sum(self.table.values[i, i] for i in range(len(self.table)))
+        correct_predictions = sum(self.table.values[i, i] for i in range(0,2))
 
         # Sum of all elements (total predictions)
         total_predictions = self.table.values.sum()
@@ -32,8 +32,8 @@ class ModelReport:
         Calculate precision from confusion matrix (crosstab).
         Precision = TP / (TP + FP)
         """
-        tp = table[0, 0]
-        fp = table[0, 0] + table[1, 0]
+        tp = table[0][0]
+        fp = table[0][0] + table[1][0]
         return tp / (tp + fp) if (tp + fp) != 0 else 0
 
     def recall(self,table):
@@ -41,8 +41,8 @@ class ModelReport:
         Calculate recall from confusion matrix (crosstab).
         Recall = TP / (TP + FN)
         """
-        tp = table[0, 0]
-        fn = table[0, 0] + table[0, 1]
+        tp = table[0][0]
+        fn = table[0][0] + table[0][1]
         return tp / (tp + fn) if (tp + fn) != 0 else 0
 
     def f1_score(self,table):
@@ -83,15 +83,15 @@ class ModelReport:
         print("="*50)
 
         print(f"Accuracy: {self.accuracy():.2f}")
-        print(f"Macro Accuracy: {self.macro_average(self.accuracy):.2f}")
 
+        #print(f"Macro Accuracy: {self.macro_average(self.accuracy):.2f}")
+        # ⚠️ Most likely meaningless
+        #print(f"Micro Accuracy: {self.micro_average(self.accuracy):.2f}")
         print("="*50)
 
-        # ⚠️ Most likely meaningless
-        print(f"Micro Accuracy: {self.micro_average(self.accuracy):.2f}")
 
-        print(f"Macro Precision: {self.macro_average(self.precision):.2f}")
-        print(f"Micro Precision: {self.micro_average(self.precision):.2f}")
+        print(f"Macro F1: {self.macro_average(self.f1_score):.2f}")
+        print(f"Micro F1: {self.micro_average(self.f1_score):.2f}")
 
         print("="*50)
 
@@ -99,9 +99,9 @@ class ModelReport:
         print(f"Micro Recall: {self.micro_average(self.recall):.2f}")
 
         print("="*50)
+        print(f"Macro Precision: {self.macro_average(self.precision):.2f}")
+        print(f"Micro Precision: {self.micro_average(self.precision):.2f}")
 
-        print(f"Macro F1: {self.macro_average(self.f1_score):.2f}")
-        print(f"Micro F1: {self.micro_average(self.f1_score):.2f}")
 
 
 
@@ -111,7 +111,7 @@ def evaluate(model : ModelCard,test,cache=True):
         print("⚠️ Using cached report ⚠️")
         return
     fit = pd.read_csv(model.file_path)["model_classification"]
-    return ModelReport(fit,test)
+    model.report = ModelReport(test,fit)
 
 def evaluate_models(models, file_path="./data/train.jsonl"):
     # get train data
@@ -132,6 +132,7 @@ def main():
                   "Meta", 0, 70, "results/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free/output.csv"),
     ]
     evaluate_models(model_list)
+    print(model_list[1].report.table)
 
 
 if __name__ == "__main__":

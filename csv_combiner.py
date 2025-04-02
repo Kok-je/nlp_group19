@@ -7,7 +7,7 @@ def combine(file_path):
     fourth = pd.read_csv(f"{file_path}/fourth_partition.csv")
     fifth = pd.read_csv(f"{file_path}/fifth_partition.csv")
     sixth = pd.read_csv(f"{file_path}/sixth_partition.csv")
-    combined = pd.concat([first, second, third, fourth, fifth, sixth])
+    combined = pd.concat([first, second, third, fourth, fifth, sixth])[["id","model_classification","reasoning"]]
     combined.to_csv(f"{file_path}/output.csv", index=False)
 
 if __name__ == "__main__":

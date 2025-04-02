@@ -40,7 +40,7 @@ class ModelCard:
         print(f"{self.author} - {self.model_name} {self.version}")
         print(f"Size: {self.size} Billion Parameters")
         print(f"Price: ${self.price}/M tokens")
-        print(f"Report: {self.report}")
+        print(f"Report: {self.report.display_report()}")
 
 
         if verbose:
@@ -50,4 +50,4 @@ class ModelCard:
             print(f"Author: {self.author}")
             print(f"Price: ${self.price}/M tokens")
             print(f"Size: {self.size} Billion Parameters")
-            print(f"Report: {self.report}")
+            print(f"Report: {self.report.display_report()}")
