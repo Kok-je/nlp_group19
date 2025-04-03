@@ -12,4 +12,4 @@ def combine(file_path):
 
 if __name__ == "__main__":
     combine("./results/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free")
-    combine("./results/Gemma2_27b")
+    combine("results/Gemma/Gemma2_27b")
