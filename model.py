@@ -12,15 +12,15 @@ def initialize_model(model_name: str, defined_api_key: str = None):
     novita_api_key = os.getenv("NOVITA_API_KEY")
 
     if defined_api_key: # if we have a defined api key, we don't need to use the environment variables
-        novita_api_key = defined_api_key
+        together_api_key = defined_api_key
     else:
         together_api_key = os.getenv("TOGETHER_API_KEY")
     
     if not api_key and not together_api_key:
         raise ValueError("No API key found. Please set the HUGGINGFACE_API_KEY environment variable.")
     
-    client = InferenceClient(provider="novita", api_key=novita_api_key)
-    # client = Together(api_key=together_api_key)
+    # client = InferenceClient(provider="novita", api_key=novita_api_key)
+    client = Together(api_key=together_api_key)
     return client, model_name
 
 def call_llm(client, model_name, section_name, content):
@@ -64,7 +64,7 @@ def call_llm(client, model_name, section_name, content):
 
 
 if __name__ == "__main__":
-    MODEL_NAME = "deepseek-ai/DeepSeek-R1"
+    MODEL_NAME = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
 
     client, model_name = initialize_model(MODEL_NAME)
 
