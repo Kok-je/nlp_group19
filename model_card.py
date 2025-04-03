@@ -25,7 +25,7 @@ class ModelCard:
         Displays the model card in a pretty format.
     """
 
-    def __init__(self, model_name, version, description, author, price,size,file_path):
+    def __init__(self, model_name, version, description, author, price,size,file_path,partition = None):
         self.model_name = model_name
         self.version = version
         self.description = description
@@ -34,6 +34,7 @@ class ModelCard:
         self.size = size
         self.file_path = file_path
         self.report = None
+        self.partition = partition
 
     def display_card(self, verbose = False):
         """Display the model card information in a formatted way."""

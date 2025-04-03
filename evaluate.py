@@ -234,9 +234,9 @@ def plot_reports(models, plot):
 def evaluate_models(models, plot = False, file_path="./data/train.jsonl"):
     # get train data
     # get test data
-    test = pd.read_json(path_or_buf=file_path, lines=True)["label"].reset_index(drop=True)
+    test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
     for model in models:
-        evaluate(model,test)
+        evaluate(model,test[(model.partition-1) * 1365 : model.partition * 1365 ].reset_index(drop=True) if model.partition else test)
         model.display_card()
         print("="*50)
 
@@ -257,9 +257,9 @@ def main():
         ModelCard("Single Class", "Majority", "Why even try.", "Nikhil",
                   0, 0,"results/Majority/output.csv"),
         ModelCard("Gemma", "2 Cleaned", "Google's largest latest open source model.",
-                  "Google", 0, 27, "results/Gemma2_27b_clean/output.csv")
-        # ModelCard("Gemma","2 No Section Name","experimenting with no section",
-        #           "Google",0,27,"results/Gemma2_27b_nosectionname/fourth_partition.csv")
+                  "Google", 0, 27, "results/Gemma2_27b_clean/output.csv"),
+        ModelCard("Gemma","2 No Section Name","experimenting with no section",
+                   "Google",0,27,"results/Gemma2_27b_nosectionname/fourth_partition.csv",partition = 4)
     ]
     evaluate_models(model_list,"brief")
 
