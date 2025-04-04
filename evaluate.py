@@ -274,6 +274,8 @@ def main():
         #           "Google", 0, 1000, "results/Gemini-2.5-Pro/Gemini_2.5_Pro.csv"),
         ModelCard("Mistral","v1", "Mistral's first model.",
                   "Mistral", 0, 7, "results/student_models/mistral7b/first_partition_student_mistral7b.csv",1),
+        ModelCard("Llama3.2 1B ", "Meta's smallest model.",
+                  "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition.csv",1),
     ]
     evaluate_models(model_list,"brief")
 
