@@ -11,5 +11,5 @@ def combine(file_path):
     combined.to_csv(f"{file_path}/output.csv", index=False)
 
 if __name__ == "__main__":
-    combine("results/Llama/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free")
-    combine("results/Gemma/Gemma2_27b")
+    combine("results/Teachers/Llama/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free")
+    combine("results/Teachers/Gemma/Gemma2_27b")
