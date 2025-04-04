@@ -237,6 +237,7 @@ def evaluate_models(models, plot = False, file_path="./data/train.jsonl"):
     test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
     for model in models:
         evaluate(model,test[(model.partition-1) * 1365 : model.partition * 1365 ].reset_index(drop=True) if model.partition else test)
+        # evaluate(model,test[:199])
         model.display_card()
         print("="*50)
 
@@ -247,9 +248,9 @@ def main():
     plt.style.use("dark_background")
     model_list = [
         ModelCard("Gemma", "2", "Google's largest latest open source model.",
-                  "Google", 0, 27, "results/Gemma/Gemma2_27b/output.csv"),
+                  "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b/output.csv"),
         ModelCard("Llama", "3.3 Instruct Turbo", "Meta's latest open source model.",
-                  "Meta", 0, 70, "results/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free/output.csv"),
+                  "Meta", 0, 70, "results/Teachers/Llama/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free/output.csv"),
         ModelCard("Random", "Indiscriminate", "Random model.", "Nikhil",
                   0, 0, "results/baselines/Completely_random/output.csv"),
         ModelCard("Random", "Proportional", "Random model.", "Nikhil",
@@ -257,9 +258,22 @@ def main():
         ModelCard("Single Class", "Majority", "Why even try.", "Nikhil",
                   0, 0, "results/baselines/Majority/output.csv"),
         ModelCard("Gemma", "2 Cleaned", "Google's largest latest open source model.",
-                  "Google", 0, 27, "results/Gemma/Gemma2_27b_clean/output.csv"),
+                  "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b_clean/output.csv"),
         ModelCard("Gemma","2 No Section Name","experimenting with no section",
-                   "Google", 0, 27, "results/Gemma/Gemma2_27b_nosectionname/fourth_partition.csv", partition = 4)
+                   "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b_nosectionname/fourth_partition.csv", partition = 4),
+        ModelCard("Llama", "3.3 Instruct Turbo Clean", "Meta's latest open source model.",
+                  "Meta", 0, 70, "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama.csv", partition = 6),
+        ModelCard("Llama", "3.3 Instruct Turbo No Section Name", "Meta's latest open source model.",
+                  "Meta", 0, 70,
+                  "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama_no_section_name.csv", partition = 6),
+        ModelCard("GPT", "4.5 Cheater", "OpenAI's latest model.",
+                  "OpenAI", 0, 1000, "results/Teachers/GPT4.5/cheated/output.csv"),
+        ModelCard("GPT", "4.5", "OpenAI's latest model.",
+                  "OpenAI", 0, 1000, "results/Teachers/GPT4.5/fair/output.csv"),
+        # ModelCard("Gemini","2.5 Pro", "Google's latest model.",
+        #           "Google", 0, 1000, "results/Gemini-2.5-Pro/Gemini_2.5_Pro.csv"),
+        ModelCard("Mistral","v1", "Mistral's first model.",
+                  "Mistral", 0, 7, "results/student_models/mistral7b/first_partition_student_mistral7b.csv",1),
     ]
     evaluate_models(model_list,"brief")
 
