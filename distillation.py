@@ -1,13 +1,9 @@
-# %pip install -q transformers datasets accelerate peft bitsandbytes sentence-transformers
-
-import nbformat
-print(nbformat.__version__)
-
 import pandas as pd
 from datasets import Dataset
 import torch
 import time
 import os
+import json
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
@@ -24,10 +20,6 @@ def load_dataset_with_context(partition_path: str) -> Dataset:
 
 train_dataset = load_dataset_with_context("./merged_dataset.csv")
 
-# %run student_eval.ipynb
-
-from student_eval import call_pipe
-
 hf_token = os.getenv('HUGGINGFACE_API_KEY')
 model_id = "google/gemma-3-1b-it"
 
@@ -39,6 +31,45 @@ model = AutoModelForCausalLM.from_pretrained(
     token=hf_token,
     attn_implementation="eager"
 )
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = model.to(device)
+print(f"Model loaded on device: {device}")
+
+messages = [
+    {"role": "user", "content": "Who are you?"},
+]
+pipe = pipeline("text-generation", model="google/gemma-3-1b-it", max_new_tokens=2048)
+pipe(messages)
+
+def call_pipe(pipe, section_name, content):
+    messages = [{"role": "system", "content": 
+                 "You are an AI assistant who will assess whether a given text is used as a background, result or method section in a scientific paper."
+                 "You will be given a section name and the text, and you will need to classify the text as one of [background, result, method]."
+                 "You will also need to provide a reasoning for your classification."
+                 "The output should strictly be a json with the following two keys: classification, reasoning."
+                 "Example output would look like: {\"classification\": \"result\", \"reasoning\": \"This is the reasoning\"}"
+    }, 
+    {"role": "user", "content": f"section name: {section_name}, text: {content}"}]
+    response = pipe(messages)[0]
+    try:
+        if response["generated_text"][2]["content"]:
+            print(response["generated_text"][2]["content"])
+            content = response["generated_text"][2]["content"]
+            start = content.find("{")
+            end = content.rfind("}") + 1
+            json_str = content[start:end]
+            answers = json.loads(json_str)
+            classification = answers["classification"]
+            reasoning = answers["reasoning"]
+            return classification, reasoning
+        else:
+            return "Invalid", "No reasoning provided"
+    except Exception as e:
+        print(e)
+        return "Invalid", "No reasoning provided"
+    
+result = call_pipe(pipe, "Introduction", "However, how frataxin interacts with the Fe-S cluster biosynthesis components remains unclear as direct one-to-one interactions with each component were reported (IscS [12,22], IscU/Isu1 [6,11,16] or ISD11/Isd11 [14,15]).")
+print(result)
 
 def collate_fn(examples):
     batch = {
@@ -61,7 +92,7 @@ def collate_fn(examples):
             truncation=True,
             max_length=512,
             return_tensors="pt"
-        )
+        ).to(device)
         
         batch["input_ids"].append(tokenized["input_ids"])
         batch["attention_mask"].append(tokenized["attention_mask"])
@@ -151,7 +182,7 @@ class CosineSimilarityDistiller(Trainer):
 training_args = TrainingArguments(
     output_dir="cosine-distilled",
     num_train_epochs=1,
-    per_device_train_batch_size=4,
+    per_device_train_batch_size=2,
     gradient_accumulation_steps=4,
     learning_rate=2e-5,
     fp16=True,
