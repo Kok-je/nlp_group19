@@ -1,14 +1,17 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import warnings
 
 from model_card import ModelCard
 
 
 class ModelReport:
-    def __init__(self, train, test):
+    def __init__(self, train, test,name,version):
         # [[TP, FN],[FP, TN]]
         self.table = pd.crosstab(train,test)
+        if self.table.shape[1] != 3:
+            warnings.warn(f"Invalid labels predicted for {name} {version}, might break calculations.")
         self.table1 = [[self.table.iat[0,0], self.table.iat[0,1] + self.table.iat[0,2]],
                        [self.table.iat[1,0] + self.table.iat[2,0], self.table.iat[1,1] + self.table.iat[1,2] + self.table.iat[2,1] + self.table.iat[2,2]]]
         self.table2 = [[self.table.iat[1,1], self.table.iat[1,0] + self.table.iat[1,2]],
@@ -106,7 +109,7 @@ def evaluate(model : ModelCard,test,cache=True):
         print("⚠️ Using cached report ⚠️")
         return
     fit = pd.read_csv(model.file_path)["model_classification"]
-    model.report = ModelReport(test,fit)
+    model.report = ModelReport(test,fit,model.model_name,model.version)
 
 def plot_reports(models, plot):
     if not plot:
@@ -236,8 +239,16 @@ def evaluate_models(models, plot = False, file_path="./data/train.jsonl"):
     # get test data
     test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
     for model in models:
-        evaluate(model,test[(model.partition-1) * 1365 : model.partition * 1365 ].reset_index(drop=True) if model.partition else test)
-        # evaluate(model,test[:199])
+        if model.partition:
+            if model.partition == 200:
+                evaluate(model,test[:200])
+            elif 0 < model.partition < 7:
+                evaluate(model,test[(model.partition-1) * 1365 : model.partition * 1365 ].reset_index(drop=True))
+            else :
+                print(f"Invalid partition size, skipping evaluation for {model.model_name}.")
+                continue
+        else:
+            evaluate(model,test)
         model.display_card()
         print("="*50)
 
@@ -274,7 +285,15 @@ def main():
                   "Google", 0, 1000, "results/Teachers/Gemini-2.5-Pro/Gemini_2.5_Pro.csv"),
         ModelCard("Mistral","v1", "Mistral's first model.",
                   "Mistral", 0, 7, "results/student_models/mistral7b/first_partition_student_mistral7b.csv",1),
-        ModelCard("Llama3.2 1B ", "Meta's smallest model.",
+        ModelCard("Gemma","3", "Google's latest model.",
+                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/first-partition.csv",200),
+        ModelCard("Gemma","3 no reason", "Google's latest model.",
+                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/first-partition_no_reason.csv",200),
+        ModelCard("Gemma","3 no reason clean", "Google's latest model.",
+                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/first-partition_no_reason_clean.csv",200),
+        ModelCard("DeepSeek","R1", "DeepSeek's latest model.",
+                  "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/output_fixed.csv",200),
+        ModelCard("Llama","3.2", "Meta's smallest model.",
                   "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition.csv",1),
     ]
     evaluate_models(model_list,"brief")
