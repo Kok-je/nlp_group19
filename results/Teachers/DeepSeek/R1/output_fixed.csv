@@ -1,0 +1,200 @@
+model_classification,reasoning,class
+background,"The text discusses existing knowledge about frataxin interactions, setting the context for the study.",background
+method,"The text describes specific procedures used in the study, such as sampling and storage.",method
+background,"The text explains the drug's mechanism and cites prior studies, providing context.",background
+result,"The text interprets findings on clustering and territorial boundary costs.,",result
+result,"The text presents observed symptoms linked to arachnoid cysts, indicating findings.",result
+result,"The text identifies Wee1 as a molecular target and discusses inhibitor results.,",result
+result,"The text emphasizes conclusions about early diagnosis and treatment necessity.,",result
+result,"The text presents experimental findings on molecular weight's role in antioxidant properties.,",result
+method,"The text introduces a new methodological approach for cell harvesting.,",method
+background,"The text provides context on advances in surgical techniques.,",background
+background,"The text classifies cooperation mechanisms using theoretical frameworks.,",background
+background,"The text reviews mitochondrial division studies, offering background context.",background
+result,"The text presents data on plasma membrane remnants, referencing a figure.",result
+method,"The text describes the use of an algorithm for organ segmentation.,",method
+method,"The text lists interventions like childcare subsidies as part of the methodology.,",method
+result,"The text explains findings on mitochondrial electron transport changes.,",result
+result,"The text evaluates manipulative therapy effectiveness based on prior studies.,",result
+result,"The text aligns findings with prior reports on Smt3 and Ubc9 functions.,",result
+result,"The text discusses Scp160p's role in a network, interpreting results.",result
+method,"The text outlines experimental procedures for measuring mitochondrial respiration.,",method
+background,"The text cites previous analyses to contextualize solar subsidy impacts.,",background
+result,"The text lists proteins identified as necessary for electron flow management.,",result
+result,"The text compares results with field and lab observations.,",result
+result,"The text presents experimental outcomes on SC absorption reduction.,",result
+background,"The text links SNPs to cancer risk as part of existing knowledge.,",background
+result,"The text discusses matricellular proteins' role in ECM organization.,",result
+result,"The text evaluates evidence on PBM's role in managing medical conditions.,",result
+method,"The text details flow cytometry and staining protocols.,",method
+method,"The text describes methodology for training language models using a corpus.,",method
+background,"The text provides background on cisplatin's clinical use.,",background
+background,"The text contextualizes genotype shifts across regions.,",background
+method,"The text describes experimental methods for γ-tubulin localization.,",method
+result,"The text discusses RNA interference mechanisms as findings.,",result
+method,"The text outlines transplantation procedures in methodology.,",method
+result,"The text presents findings on blastocyst decrease in bovines.,",result
+background,"The text explains phosphorylation mechanisms as background.,",background
+result,"The text presents data on protein interactions and activity.,",result
+result,"The text discusses twin birthweight outcomes from the study.,",result
+result,"The text presents findings on β-glucan's effect on IFN-γ.,",result
+result,"The text discusses tumor development linked to irradiation.,",result
+background,"The text introduces theoretical frameworks for beamformers.,",background
+background,"The text provides background on Rab5-to-Rab7 conversion processes.,",background
+result,"The text presents data on serotype shifts over time.,",result
+background,"The text reviews existing neural model applications.,",background
+result,"The text discusses atranorin's effects on arthropods and snails.,",result
+background,"The text lists locations of prior studies for context.,",background
+background,"The text discusses technical aspects of memory bandwidth.,",background
+method,"The text describes experimental models and studies.,",method
+method,"The text explains methodology for transforming training data.,",method
+method,"The text details gene cloning and sequencing methods.,",method
+result,"The text presents enzyme distribution data in tables.,",result
+result,"The text confirms subcellular localization via technical analysis.,",result
+method,"The text specifies assessment tools and scales used.,",method
+result,"The text presents findings on BHT-induced epithelial damage.,",result
+background,"The text discusses financial risk measures theoretically.,",background
+result,"The text links stress to HPA axis effects in cocaine use.,",result
+background,"The text provides ecological context on elk behavior.,",background
+background,"The text reviews CDDP resistance mechanisms.,",background
+background,"The text cites studies on denervation effects.,",background
+background,"The text explains insulin resistance mechanisms contextually.,",background
+background,"The text discusses algal flux distribution under nitrogen limits.,",background
+result,"The text divides patient groups based on impairment patterns.,",result
+background,"The text reviews developments in visual data structuring.,",background
+result,"The text lists compounds affecting plant immunity pathways.,",result
+method,"The text uses logistic regression for prevalence analysis.,",method
+result,"The text discusses PWV findings in diabetic patients.,",result
+method,"The text addresses methodological limitations in PAF estimation.,",method
+background,"The text describes genetic mutant phenotypes as background.,",background
+result,"The text presents reaction time bias results in SAD patients.,",result
+method,"The text details data sources and characteristics.,",method
+result,"The text discusses reproductive preferences from a study.,",result
+background,"The text reviews orthodontic treatment outcomes.,",background
+method,"The text compares inoculation methodologies.,",method
+result,"The text links hemodynamic imbalance to PPH.,",result
+background,"The text discusses face processing mechanisms contextually.,",background
+result,"The text compares visual impairment prevalence in rehab.,",result
+method,"The text describes fracture simulation techniques.,",method
+background,"The text explains BCL-xL's role in channel modulation.,",background
+result,"The text discusses antibiotic effects on bacterial membranes.,",result
+method,"The text specifies depression assessment scales used.,",method
+result,"The text presents findings on lymphocyte migration.,",result
+method,"The text describes genetic editing techniques.,",method
+background,"The text introduces sensor technology contextually.,",background
+result,"The text presents protein localization data.,",result
+result,"The text compares deflection results in coated wires.,",result
+background,"The text reviews thermal decomposition studies.,",background
+method,"The text evaluates accuracy against a reference model.,",method
+method,"The text outlines exclusion criteria for the study.,",method
+result,"The text discusses adaptation outcomes in patients.,",result
+result,"The text evaluates drought factors in the Dust Bowl.,",result
+background,"The text provides anatomical context on MB length.,",background
+method,"The text details Y-chromosome genotyping methods.,",method
+result,"The text presents exponential distribution findings.,",result
+method,"The text describes dataset composition and setup.,",method
+background,"The text reviews cold-adapted bacterial studies.,",background
+method,"The text applies the Lineweaver-Burke equation.,",method
+background,"The text discusses agricultural methods contextually.,",background
+method,"The text references TSP heuristic implementations.,",method
+result,"The text discusses CK signaling's insufficient effects.,",result
+result,"The text presents Dscam transgene experimental data.,",result
+result,"The text contrasts findings with prior analysis results.,",result
+result,"The text discusses BARE-2 recombination outcomes.,",result
+method,"The text specifies the psychological scale used.,",method
+background,"The text introduces rutin sources contextually.,",background
+method,"The text describes software package functionality.,",method
+result,"The text discusses Dusp6 mutant mouse phenotypes.,",result
+background,"The text outlines challenges in strain engineering.,",background
+result,"The text links ANP suppression to drug treatment.,",result
+result,"The text presents data on hormones and Tregs.,",result
+result,"The text discusses CSF dissemination mechanisms.,",result
+method,"The text details survey instruments used.,",method
+method,"The text evaluates rule generation thresholds.,",method
+method,"The text specifies memory assessment subtests.,",method
+method,"The text describes lesion induction procedures.,",method
+background,"The text explains channel behavior in MIMO systems.,",background
+background,"The text discusses biodiversity impacts contextually.,",background
+background,"The text reviews surgical technique challenges.,",background
+result,"The text discusses model performance improvements.,",result
+background,"The text defines insulin resistance contextually.,",background
+result,"The text links mental imagery deficits to depression.,",result
+background,"The text reviews phosphorylation pathways.,",background
+method,"The text details flow cytometry protocols.,",method
+background,"The text reviews synchronization methods.,",background
+method,"The text assesses interobserver variability.,",method
+background,"The text discusses economic valuation methodologies.,",background
+background,"The text reviews ixazomib's pharmacokinetics.,",background
+result,"The text compares ZOE and CH treatment outcomes.,",result
+result,"The text discusses T3SS necessity in infection models.,",result
+method,"The text outlines radiology report review methods.,",method
+background,"The text explains herbivory-induced changes.,",background
+method,"The text describes dataset usage in experiments.,",method
+background,"The text reviews apoptosis signaling pathways.,",background
+background,"The text discusses post-translational modifications.,",background
+background,"The text explains PP1c's role in ion channels.,",background
+result,"The text presents salivary flow rate differences.,",result
+method,"The text details GCP usage in image processing.,",method
+result,"The text discusses flutamide's opposing effects.,",result
+background,"The text reviews nutrient availability studies.,",background
+method,"The text explains experimental screening settings.,",method
+background,"The text introduces motion analysis techniques.,",background
+result,"The text discusses bioavailability findings.,",result
+method,"The text outlines cirrhosis diagnostic criteria.,",method
+result,"The text describes imaging findings for air.,",result
+result,"The text presents inhibitory relationship data.,",result
+method,"The text specifies patient inclusion criteria.,",method
+result,"The text emphasizes forest conservation importance.,",result
+background,"The text reviews shear stress activation pathways.,",background
+method,"The text details phylogenetic analysis constraints.,",method
+method,"The text describes feature extraction methodology.,",method
+result,"The text discusses superantigen functions.,",result
+result,"The text correlates PBR and NBR findings.,",result
+method,"The text specifies control IgG usage.,",method
+method,"The text discusses spatial predictor methodology.,",method
+result,"The text explains c-IAP2's regulatory role.,",result
+result,"The text compares bacterial electron transfer.,",result
+result,"The text presents follicle survival data.,",result
+background,"The text compares prior study results.,",background
+result,"The text discusses ON1 strain spread.,",result
+background,"The text introduces a computational model.,",background
+background,"The text reviews wireless energy strategies.,",background
+result,"The text evaluates diet physical form effects.,",result
+result,"The text discusses solar exposure benefits.,",result
+result,"The text presents phorbol ester effect data.,",result
+result,"The text attributes metal variation to practices.,",result
+background,"The text reviews sperm phosphorylation studies.,",background
+background,"The text explains homeodomain functions.,",background
+method,"The text details fine-tuning methodologies.,",method
+result,"The text discusses HBV translocation mechanisms.,",result
+background,"The text introduces cultural event context.,",background
+background,"The text reviews tRNA selection processes.,",background
+background,"The text discusses antigen circulation context.,",background
+method,"The text compares multiple kernel learning methods.,",method
+background,"The text reviews appearance-based techniques.,",background
+method,"The text specifies experimental settings.,",method
+result,"The text presents PKCη-C2 domain effects.,",result
+method,"The text details pivoting schemes in implementation.,",method
+method,"The text describes architectural improvements.,",method
+method,"The text outlines statistical trigger methods.,",method
+background,"The text reviews neural network stability studies.,",background
+background,"The text discusses ontology alignment systems.,",background
+result,"The text aligns findings with prior odorant responses.,",result
+method,"The text details neural activity recording.,",method
+background,"The text explains antitermination mechanisms.,",background
+result,"The text presents synaptic depression data.,",result
+result,"The text discusses policy uncertainty impacts.,",result
+background,"The text reviews orbitofrontal cortex functions.,",background
+method,"The text details exposure assessment methods.,",method
+method,"The text applies staging guidelines.,",method
+method,"The text discusses model nesting methodology.,",method
+result,"The text evaluates CCS implementation inadequacy.,",result
+result,"The text compares enzyme distribution patterns.,",result
+result,"The text links throat packs to sore throat risk.,",result
+result,"The text presents bupivacaine's experimental effects.,",result
+background,"The text reviews THz application technologies.,",background
+background,"The text explains antibiotic resistance mechanisms.,",background
+result,"The text discusses geological deformation features.,",result
+method,"The text describes VAR model methodology.,",method
+method,"The text details diet score calculation.,",method
+result,"The text discusses crime risk factors.,",result
