@@ -29,6 +29,7 @@ def create_training_data(file_path,name = "training"):
     og = preprocess("./data/train.jsonl")[["sectionName", "string", "unique_id"]].rename(columns={"sectionName":"sectionName"})
     combined = og.join(data, how="inner")
     assert combined.shape[0] == 8194
+    combined = combined.map(lambda x : x if not isinstance(x,str) else x.replace("\n"," "),"ignore")
     combined.to_csv(f"Student_Training_Data/{name}.csv", index=False)
 if __name__ == "__main__":
     combine6("results/Teachers/Llama/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free")
