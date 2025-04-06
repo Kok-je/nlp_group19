@@ -1,0 +1,373 @@
+model_classification,reasoning
+method,Describes data analysis procedures following specific guidelines, which is part of methodology.
+method,Explains a two-step method developed for bacterial enumeration, detailing experimental procedures.
+background,Predicts outcomes based on prior research, setting up the study's hypothesis.
+method,Details participant exclusion criteria and study design, typical of methods.
+background,Discusses pathogen mechanisms and cites previous studies to contextualize findings.
+result,Describes observed deficits in patients, indicating study findings.
+method,Quantifies comorbidity using a specific index, a methodological approach.
+result,Identifies widely studied sources of insecticidal oils, presenting research findings.
+background,Reviews literature on education productivity, providing context.
+result,Discusses protein analysis techniques and their application in the study's findings.
+method,Describes technical implementation (cluster election process) in a distributed system.
+result,Reports observed cell size variation with references to prior studies.
+result,Presents infection prevalence data from PCR testing.
+method,Explains methodology to assess attentional states and neurocognitive differences.
+background,Discusses developmental defects linked to genetic mutations, contextualizing the study.
+background,Cites previous studies on treatment effects to frame conclusions.
+result,Notes gene induction findings from prior research in the discussion.
+background,Explains theoretical roles of catecholamines in cortical processing.
+background,Describes prior work on gene promoters, providing context.
+result,Reports experimental results (GPx levels) aligned with cited studies.
+method,Details hypothesis formulation based on existing evidence, a methodological step.
+method,Describes use of Markov models and statistical analysis techniques.
+method,Outlines RNA extraction and quantification methods.
+background,Discusses socioeconomic factors influencing patient treatment, providing context.
+method,Describes focus group methodology and interaction analysis.
+background,Cites prior studies on transfected fibroblasts and NT methods, contextualizing results.
+method,Specifies analytical techniques for DGS composition.
+background,Discusses forest growth limitations from prior research, setting context.
+background,Refers to prior ensemble training methods to frame the study's aim.
+method,Details risk of bias assessment using a standardized tool.
+method,Describes electrophysiological recording procedures.
+result,Reports cytokine concentration changes during exercise, presenting findings.
+method,Explains NE turnover measurement methodology.
+background,Discusses biodiversity loss factors in human-degraded landscapes, providing context.
+result,Presents obesity-CRC screening rate associations from two studies.
+background,Cites prior findings on TJR patient selection trends.
+background,Reviews causal regulator identification methods in prior studies.
+result,Discusses TONSL's role in DNA repair, linking to study findings.
+background,Highlights Real-time PCR applications in various fields, contextualizing its use.
+method,Describes PCR amplification and SSR marker usage.
+background,Reviews molecular markers' role in ecological studies.
+result,Reports vessel involvement as a prognostic factor, based on prior studies.
+result,Describes enzyme translocation observed in experiments.
+background,Cites prior studies on term usage and statistical methods.
+background,Refers to prior findings on radiation retinopathy mimics.
+background,Discusses pathogen entry strategies, citing previous work.
+result,Confirms prior findings on CB1 transcript levels in rat studies.
+method,Describes UMAC's introduction and cryptographic method details.
+background,Discusses prebiotics used in humans, providing context.
+background,Reviews mitochondrial proteins' roles in apoptosis.
+result,Reinforces literature on NK cell activity enhancement by CV.
+background,Discusses plasma homocysteine levels' demographic trends.
+background,Reviews drug formulation polymers from prior studies.
+background,Cites lidar applications in broad-leaved forests, contextualizing the study.
+background,Discusses Derlin proteins' roles in ERAD from prior research.
+method,Describes cDNA library screening methodology.
+result,Explains impaired LTD due to receptor loss, a study finding.
+result,Presents craniofacial enhancer identification methods and findings.
+background,Discusses translation-invariant wavelets for signal denoising.
+result,Supports prior findings on KATP channel regulation mechanisms.
+background,Reviews yeast telomere length regulation mechanisms.
+result,Details HA monomer structure and weight from prior studies.
+result,Reports benefits of MST1/2 inhibition in tissue repair from experiments.
+method,Describes entropy-based merging in acoustic modeling.
+background,Cites previous meta-analysis techniques for comparison.
+background,Proposes SIRPα-CD47 interaction mechanism based on prior phosphorylation studies.
+method,Describes iris code creation methodology.
+method,Details GC content analysis using EMBOSS.
+background,Discusses glucocorticoid effects on GH gene expression from literature.
+background,Cites conflicting val66met allele studies in AD.
+background,Discusses OPP surrogates in glaucoma studies.
+method,Describes neuron variability analysis using biological data.
+result,Reports physicians' positive NGS panel perceptions aligned with studies.
+background,Cites factors affecting molecular time estimates.
+result,Notes isoamyl acetate production in co-inoculation from prior work.
+background,Reviews cyclins and CDKs in cell cycle regulation.
+background,Discusses hRPE cells' L-dopa secretion pathway.
+result,Contrasts AMF colonization findings with prior studies.
+result,Reports MB prevalence in sheep hearts from prior studies.
+background,Reviews VA studies across languages and datasets.
+result,Details MEK/ERK pathway role in iNOS expression from experiments.
+result,Summarizes student-instructor responsibility findings from publications.
+result,Presents prospective and randomized study counts.
+background,Discusses meta-program interpretation as second-order predicates.
+result,Confirms feather accumulation findings from prior studies.
+method,Describes ActiveLeZi algorithm's use of Markov models.
+method,Details anxiety assessment using SAS scale.
+method,Specifies Western immunoblotting procedures for protein localization.
+background,Discusses hospital infrastructure components from prior work.
+result,Shows fatty acid binding in nuclear receptors from structural analysis.
+method,Compares screening methods retrospectively.
+background,Reviews MBD distribution across species.
+result,Confirms translational impairment via slow-growth phenotype.
+method,Describes KC model refinement using AFM.
+background,Cites HAART-era studies on weight loss interventions.
+method,Details GCL width measurement protocol.
+background,Discusses routing schemes using planar graphs.
+result,Reports β-catenin's adhesion role from prior studies.
+background,Reviews NMDA/AMPA receptor substrates in signaling.
+method,Describes Delphi method for expert consensus.
+result,Aligns with prior probiotic feeding results in rats.
+result,Discusses resveratrol extraction efficacy from transgenic plants.
+background,Cites ASD prevalence studies in England.
+method,Details phase I duration estimation from response profiles.
+background,Reviews manual analysis of online medical advice.
+background,Discusses emotional problems in epilepsy patients.
+method,Describes crystalloid solution use in blood replacement studies.
+method,Specifies cell lines and culture conditions used.
+result,Details DA neuron subpopulation localization from experiments.
+background,Compares EEG oscillation modeling approaches.
+result,Shows ROS production decrease from prior publication.
+background,Discusses wine polyphenols' LDL oxidation effects.
+method,Details protein expression reduction via experimental procedures.
+method,Describes gas-phase smoke composition analysis.
+background,Cites cocaine's monoaminergic effects in addiction.
+result,Discusses global broadcasting in supraliminal stimuli.
+result,Analyzes polyfunctionality index favoring specific T cells.
+method,Details risk of bias assessment using Cochrane tool.
+method,Specifies whole-cell patch-clamp recording conditions.
+result,Reports IL-10 concentration changes during exercise.
+method,Describes NE turnover time calculation.
+background,Discusses conservation factors in human-degraded landscapes.
+method,Details reciprocal trajectory visualization techniques.
+result,Discusses TRIM5α's lentiviral engagement mechanism.
+result,Confirms CP-induced creatinine reduction from prior study.
+method,Describes lipid decontamination algorithm application.
+method,Details participant recruitment from prior weight loss studies.
+background,Discusses eigenproblem constraints in prior work.
+method,Describes ERK activation analysis via Western blot.
+method,Specifies supplementation protocol and washout periods.
+method,Details COX-2 induction experiments in HUVEC.
+result,Contrasts tet(M) gene findings in C. perfringens strains.
+background,Discusses breast biomechanics research recommendations.
+method,Describes ML analysis using RaxML under GTR+ model.
+background,Discusses MT production in DMS degradation.
+result,Notes Bezeichner concept alignment with Java specifications.
+result,Reports temperature effects on enzyme production from experiments.
+background,Cites justification for extensionality in meta-programs.
+method,Describes selective attrition analysis procedures.
+result,Aligns with prior Tower of London task findings.
+result,Summarizes genetic correlation estimates from literature.
+background,Discusses foraging adaptations in primate studies.
+background,Reviews GIS use in health facility access studies.
+result,Identifies optimal phytocomplex sources from findings.
+result,Summarizes rTMS cognitive effects in depression studies.
+method,Details potassium current measurement techniques.
+result,Discusses UCE roles in transcriptional regulation from data.
+background,Cites European Gypsy population estimates.
+background,Discusses CRP-LDL interaction in atherosclerosis.
+method,Describes DAE semidiscrete system setup.
+result,Confirms CELF1 CLIP findings from prior studies.
+result,Reports translational impairment linked to slow growth.
+method,Details KC model refinement using AFM.
+background,Cites HAART-era weight loss intervention studies.
+method,Specifies GCL width measurement protocol.
+background,Discusses routing schemes in network topologies.
+result,Details β-catenin's adhesion role from prior studies.
+background,Reviews PKC substrates in receptor function.
+method,Describes Delphi method for consensus building.
+result,Aligns with prior fecal E. coli count findings.
+result,Discusses resveratrol absence in strawberry extracts.
+background,Cites ASD prevalence in 1966 study.
+method,Details phase I estimation from response profiles.
+background,Reviews email and e-consultation analysis methods.
+background,Discusses epilepsy-related emotional issues.
+method,Describes crystalloid solution use in animal studies.
+method,Specifies cell lines and culture conditions.
+result,Details VTA DA neuron localization from experiments.
+background,Compares EEG models for anesthetic responses.
+result,Confirms ROS production decrease from prior study.
+background,Discusses wine polyphenols' atherosclerosis effects.
+method,Details Ca2+-ATPase localization techniques.
+background,Cites cocaine's effects on monoamine reuptake.
+result,Discusses global broadcasting in neurobiological terms.
+result,Analyzes polyfunctionality index in T cells.
+method,Details risk of bias assessment using Cochrane tool.
+method,Specifies patch-clamp recording conditions.
+result,Reports IL-10 changes during endurance exercise.
+method,Describes NE turnover time calculation.
+background,Discusses conservation in human-degraded landscapes.
+result,Details thalamocortical trajectory findings from techniques.
+background,Cites stem cell senescence mechanisms from prior studies.
+result,Confirms DDR2 binding site conservation across collagens.
+background,Reviews chromatin state markers in gene regulation.
+method,Specifies cohesive zone element usage in crack modeling.
+result,Identifies lysine propionylation in bacterial proteins.
+background,Discusses anti-PLA2R antibodies in MN diagnosis.
+result,Reports drag coefficient alignment with literature.
+method,Describes Dolan-Moré profile comparison.
+method,Details AVP quantification using specific antibodies.
+result,Confirms hippocampal damage susceptibility from prior studies.
+method,Specifies pyramidal cell counting methodology.
+background,Discusses MFGE8's discovery and roles.
+result,Reports ImageNet dataset usage in experiments.
+background,Cites coral mucus as bacterial carbon source.
+background,Discusses ERAS protocol components.
+result,Details acoustic intensity calculation from pressure waves.
+result,Confirms musculoskeletal etiology in pediatric chest pain.
+result,Shows G-CSF's role in progenitor cell mobilization.
+background,Discusses intestinal inflammation and ICC disruption.
+result,Summarizes adherence differences in clinical populations.
+result,Reports exon structure divergence from chicken.
+result,Discusses drought prediction challenges in models.
+result,Confirms ATP1A1 mutant effects from prior studies.
+result,Details erosional unloading scale from topographic data.
+method,Describes voxel value estimation in reconstruction.
+result,Contrasts EEG frequency findings with prior models.
+result,Aligns with prior NAcc dopamine release findings.
+background,Cites medication adherence challenges in aging.
+result,Confirms sgl gene expression patterns from prior work.
+background,Discusses Mercury's modes and determinisms.
+result,Contrasts face discrimination exposure effects.
+background,Discusses oxidative stress mechanisms.
+background,Cites attitudes toward AAP beneficiaries from prior studies.
+result,Rules out infections via clinical/lab findings.
+method,Describes PAE role in identifying AOEs.
+result,Simulates normalized relay-eavesdropper distances.
+background,Discusses anesthetic agent's cardiac benefits.
+result,Reports depression prevalence range from prior studies.
+background,Discusses Trivers' reciprocal altruism theory.
+method,Specifies agonist/antagonist doses from prior studies.
+result,Compares Mallows model performance to rank aggregation.
+background,Cites anti-PLA2R as MN biomarker.
+result,Confirms drag coefficient alignment with literature.
+result,Shows INF2 mutant's mitochondrial division block.
+result,Maps phosphorylated residues from prior studies.
+method,Analyzes alcohol tax increase support predictors.
+result,Details AV sim SRAM latency calculations.
+background,Cites Pseudomonas dominance in bioreactors.
+result,Contrasts drag coefficient with literature values.
+method,Details mutant library construction and screening.
+result,Confirms prior ptDNA decline in light conditions.
+background,Discusses equol's structural similarity to estradiol.
+result,Aligns with McCarthy-Davison's discriminability data.
+background,Discusses core group hypothesis in STI transmission.
+result,Confirms fern gametophyte mycorrhizal associations.
+result,Aligns pufferfish IFN/ISG15 phylogenetic findings.
+background,Discusses ESIPT probes' applications.
+result,Confirms thyroid cancer incidence trends.
+background,Reviews AONs in DMD gene skipping.
+method,Describes feature matching acceleration techniques.
+background,Discusses mAChR distribution in airways.
+result,Notes no laser-induced titanium compound changes.
+background,Discusses SNX3 and retromer tubule formation.
+result,Supports density-decomposition rate correlation.
+result,Confirms Mec1-signaling increase in mutants.
+background,Reviews prior air pollution studies in China.
+method,Describes KIDMED survey use in intervention.
+result,Shows lower CRP in Philippines vs. US.
+background,Discusses identity development in adulthood.
+method,Details word alignment symmetrization heuristic.
+background,Reviews CNT sorption studies.
+result,Confirms SSR marker chromosomal locations.
+background,Cites MEK/ERK pathway role in iNOS.
+result,Summarizes shared responsibility findings.
+result,Counts prospective and RCT studies.
+background,Discusses phi as meta-program predicate.
+result,Aligns feather accumulation with prior studies.
+method,Describes ActiveLeZi's Markov model use.
+method,Details SAS anxiety assessment.
+method,Specifies Western blot procedures.
+background,Discusses hospital resource components.
+result,Shows fatty acid binding in HNF4a.
+method,Compares IA screening methods.
+background,Discusses MBD evolutionary distribution.
+result,Confirms translational impairment via growth defects.
+method,Describes AFM use in KC model refinement.
+background,Cites HAART-era weight loss studies.
+method,Specifies retinal layer measurement protocol.
+background,Discusses routing in ad hoc networks.
+result,Details β-catenin's cell adhesion role.
+background,Reviews PKC substrates in signaling.
+method,Describes Delphi consensus-building steps.
+result,Aligns with prior Lactobacillus findings.
+result,Discusses resveratrol absence in strawberries.
+background,Cites Lotter's ASD prevalence study.
+method,Details phase I estimation from response profiles.
+background,Reviews online medical advice analysis.
+background,Discusses epilepsy emotional issues.
+method,Describes crystalloid replacement in animal studies.
+method,Specifies cell lines and culture conditions.
+result,Details DA neuron localization in VTA.
+background,Compares EEG models for anesthesia.
+result,Confirms ROS decrease from prior study.
+background,Discusses wine polyphenols' benefits.
+method,Details protein expression techniques.
+method,Describes smoke particulate analysis.
+background,Cites cocaine's monoaminergic effects.
+result,Discusses supraliminal stimulus mechanisms.
+result,Analyzes polyfunctionality index parameters.
+method,Details risk of bias assessment tool.
+method,Specifies patch-clamp recording conditions.
+result,Reports IL-10 increase during exercise.
+method,Describes NE turnover calculation.
+background,Discusses conservation in degraded landscapes.
+result,Details intrinsic vascular signal contributions.
+background,Discusses PFC impairment in bipolar disorder.
+method,Describes German grammar implementation.
+result,Notes VEGF's role in ocular diseases.
+result,Confirms daptomycin's Ca²⁺ dependency.
+result,Reports hyperlocomotor activity induction.
+result,Links adipophilin to monocyte inflammation.
+method,Describes pain threshold assessment training.
+method,Details statistical tests for sex differences.
+method,Specifies radiologic review criteria.
+background,Discusses bone marrow transplant retinopathy mimics.
+result,Confirms clathrin-independent pathogen entry.
+result,Notes CB1 transcript levels in rat studies.
+method,Describes UMAC cryptographic method.
+background,Discusses prebiotics in humans.
+background,Reviews apoptosis-related mitochondrial proteins.
+result,Reinforces CV's NK cell activation effect.
+background,Discusses homocysteine level demographics.
+background,Reviews drug formulation polymers.
+background,Cites lidar use in North American forests.
+background,Discusses Derlin proteins in ERAD.
+method,Describes cDNA library screening.
+result,Explains LTD impairment from receptor loss.
+result,Presents craniofacial enhancer findings.
+background,Discusses wavelet denoising methods.
+result,Supports KATP channel regulation mechanism.
+background,Reviews yeast telomere regulation.
+result,Details HA structure from prior studies.
+result,Reports MST1/2 inhibition benefits.
+method,Describes entropy-based acoustic modeling.
+background,Cites meta-analysis techniques.
+background,Proposes SIRPα-CD47 interaction mechanism.
+method,Describes iris code creation method.
+method,Details GC content analysis.
+background,Discusses glucocorticoid effects on GH.
+background,Cites val66met allele studies.
+background,Discusses OPP surrogate use.
+method,Describes neuron variability analysis.
+result,Reports physician perceptions of NGS.
+background,Cites molecular time estimate factors.
+result,Notes isoamyl acetate production findings.
+background,Reviews cyclins/CDKs in cell cycle.
+background,Discusses hRPE's L-dopa pathway.
+result,Contrasts AMF colonization with prior studies.
+result,Reports MB prevalence in sheep.
+background,Reviews VA studies across languages.
+result,Details MEK/ERK role in iNOS expression.
+result,Summarizes student-instructor responsibility.
+result,Counts study designs used.
+background,Discusses meta-program predicates.
+result,Confirms feather accumulation findings.
+method,Describes ActiveLeZi algorithm.
+method,Details anxiety assessment scale.
+method,Specifies Western blot methods.
+background,Discusses hospital infrastructure.
+result,Shows fatty acid binding in receptors.
+method,Compares screening methods.
+background,Discusses MBD distribution.
+result,Confirms translational impairment.
+method,Describes KC model refinement.
+background,Cites HAART-era studies.
+method,Specifies retinal measurements.
+background,Discusses routing schemes.
+result,Details β-catenin adhesion role.
+background,Reviews PKC substrates.
+method,Describes Delphi method.
+result,Aligns with probiotic findings.
+result,Discusses resveratrol extraction.
+background,Cites ASD prevalence.
+method,Details phase I estimation.
+background,Reviews online medical analysis.
+background,Discusses epilepsy issues.
+method,Describes crystalloid use.
+method,Specifies cell culture.
+result,Details DA neuron locations.
+background,Compares EEG models.
+result,
