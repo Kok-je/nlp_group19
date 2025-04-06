@@ -217,6 +217,7 @@ def plot_reports(models, plot):
     # Show the plot
     plt.show()
 
+
     sns.barplot(df, x='Model Name', y='Macro F1 Score', hue='Size', palette='viridis')
     plt.xlabel('Model Name', fontsize=14)
     plt.ylabel('Macro F1 Score', fontsize=14)
@@ -233,6 +234,80 @@ def plot_reports(models, plot):
     plt.title('Macro F1 Score by Model Name', fontsize=16)
     plt.show()
 
+    if plot == "full":
+
+        df['Accuracy'] = accuracies
+
+        ax = sns.scatterplot(
+                data=df,
+                x='Size',
+                y='Accuracy',
+                hue='Author',
+                alpha=0.9,
+                palette='viridis'
+            )
+
+        for _, row in df.iterrows():
+            plt.text(
+                row['Size'] * 1.05,
+                row['Accuracy'],
+                row['Model Name'],
+                fontsize=9,
+                alpha=0.8
+            )
+
+        #Add Base Lines
+        for model in baselines:
+            # Add a horizontal line for the baseline model
+            plt.axhline(
+                y=model.report.accuracy(),
+                color='red',
+                linestyle='--',
+                label=f"{model.model_name} {model.version} (Baseline)"
+            )
+
+        # Set the title and labels
+        plt.title('Large Language Model Performance: Accuracy vs Model Size by Author', fontsize=16, pad=20)
+        plt.xlabel('Model Size (Billions of Parameters)', fontsize=14)
+        plt.ylabel('Macro F1 Score', fontsize=14)
+
+        # use the range of F1 scores to set appropriate y-axis limits
+        y_min = max(0, min(accuracies) - 0.05)
+        y_max = min(1.0, max(accuracies) + 0.05)
+        plt.ylim(y_min, y_max)
+
+        # if we have a wide range of model sizes
+        size_range = max(model_sizes) / max(min(model_sizes),1)
+        if size_range > 10:
+            # Use logarithmic scale for x-axis if sizes vary widely
+            plt.xscale('log')
+            plt.xlim(min(model_sizes) * 0.8, max(model_sizes) * 1.2)
+
+        # Add gridlines for better readability
+        plt.grid(True, linestyle='--', alpha=0.7)
+
+        # Add annotations to explain the plot
+        plt.figtext(
+            0.5, 0.01,
+            "Figure 1: Relationship between model size and Accuracies across different language models.\n" +
+            ("Note: Model size is displayed on a logarithmic scale due to the wide range of values." if size_range > 10 else ""),
+            ha='center',
+            fontsize=11,
+            bbox=dict(boxstyle='round,pad=0.5', facecolor='white', alpha=0.5)
+        )
+
+        # Improve the legend
+        plt.legend(
+            title='Model Developer',
+            loc='best',
+            frameon=True,
+            framealpha=0.9
+        )
+
+        # Adjust layout to make room for annotations
+        plt.tight_layout(rect=(0.0, 0.05, 1.0, 0.95))
+        # Show the plot
+        plt.show()
 
 def evaluate_models(models, plot = False, file_path="./data/train.jsonl"):
     # get train data
@@ -277,12 +352,14 @@ def main():
         ModelCard("Llama", "3.3 Instruct Turbo No Section Name", "Meta's latest open source model.",
                   "Meta", 0, 70,
                   "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama_no_section_name.csv", partition = 6),
-        ModelCard("GPT", "4.5 Cheater", "OpenAI's latest model.",
-                  "OpenAI", 0, 1000, "results/Teachers/GPT4.5/cheated/output.csv"),
-        ModelCard("GPT", "4.5", "OpenAI's latest model.",
-                  "OpenAI", 0, 1000, "results/Teachers/GPT4.5/fair/output.csv"),
-        ModelCard("Gemini","2.5 Pro", "Google's latest model.",
-                  "Google", 0, 1000, "results/Teachers/Gemini-2.5-Pro/Gemini_2.5_Pro.csv"),
+        # ModelCard("GPT", "4o Cheater", "OpenAI's latest model.",
+        #           "OpenAI", 0, 1000, "results/Teachers/GPT4o/cheated/output.csv"),
+        ModelCard("GPT", "4o", "OpenAI's latest model.",
+                  "OpenAI", 0, 1000, "results/Teachers/GPT4o/fair/output.csv"),
+        ModelCard("GPT", "4o api", "OpenAI's latest model.",
+                  "OpenAI", 0, 1000, "results/Teachers/GPT4o/api/output.csv"),
+        # ModelCard("Gemini","2.5 Pro", "Google's latest model.",
+        #           "Google", 0, 1000, "results/Teachers/Gemini-2.5-Pro/Gemini_2.5_Pro.csv"),
         ModelCard("Mistral","v1", "Mistral's first model.",
                   "Mistral", 0, 7, "results/student_models/mistral7b/first_partition_student_mistral7b.csv",1),
         ModelCard("Gemma","3", "Google's latest model.",
@@ -295,8 +372,12 @@ def main():
                   "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/output_fixed.csv",200),
         ModelCard("Llama","3.2", "Meta's smallest model.",
                   "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition.csv",1),
+        ModelCard("Llama","3.2 clean", "Meta's smallest model.",
+                  "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition_clean.csv",1)
+
     ]
-    evaluate_models(model_list,"brief")
+    evaluate_models(model_list,"full")
+    print(model_list[-1].report.table)
 
 
 if __name__ == "__main__":
