@@ -259,7 +259,9 @@ def main():
         ModelCard("Gemma", "2 Cleaned", "Google's largest latest open source model.",
                   "Google", 0, 27, "results/Gemma/Gemma2_27b_clean/output.csv"),
         ModelCard("Gemma","2 No Section Name","experimenting with no section",
-                   "Google", 0, 27, "results/Gemma/Gemma2_27b_nosectionname/fourth_partition.csv", partition = 4)
+                   "Google", 0, 27, "results/Gemma/Gemma2_27b_nosectionname/fourth_partition.csv", partition = 4),
+        ModelCard("chatgpt", "4o", "openai",
+                  "OpenAI", 0.0017, 0, "./first_200_4o.csv")
     ]
     evaluate_models(model_list,"brief")
 
