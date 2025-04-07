@@ -373,8 +373,11 @@ def main():
         ModelCard("Llama","3.2", "Meta's smallest model.",
                   "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition.csv",1),
         ModelCard("Llama","3.2 clean", "Meta's smallest model.",
-                  "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition_clean.csv",1)
-
+                  "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition_clean.csv",1),
+        # ModelCard("Gemma","3 full", "Google's latest model.",
+        #           "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/output.csv"),
+        # ModelCard("Gemma","3 full clean", "Google's latest model.",
+        #           "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/output_clean.csv")
     ]
     evaluate_models(model_list,"full")
     print(model_list[-1].report.table)
