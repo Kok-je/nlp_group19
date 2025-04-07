@@ -34,4 +34,5 @@ def create_training_data(file_path,name = "training"):
 if __name__ == "__main__":
     combine6("results/Teachers/Llama/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free")
     combine6("results/Teachers/Gemma/Gemma2_27b")
+    combine6("results/Teachers/DeepSeek/R1")
     create_training_data("results/Teachers/GPT4o/fair/output.csv","GPT")

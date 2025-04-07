@@ -1,0 +1,180 @@
+model_classification,reasoning
+background,The text discusses existing alternatives and previous studies, setting the context for the research.
+background,The text describes prior work on splitting MARC into MACs and cites previous results, providing context.
+background,The text reviews previous studies on cancer risk associations, situating current research within existing literature.
+background,The text cites previous findings on gene expression in cancer cells, establishing background knowledge.
+background,The text references epidemiological data on NPC incidence, providing contextual information.
+background,The text summarizes prior research on PCP asymmetry and polarity, offering foundational knowledge.
+background,The text reviews existing studies on viral replication in blood cells, establishing a scientific basis.
+background,The text cites earlier experimental results on dissociation rates, contextualizing current work.
+background,The text explains theoretical concepts (e.g., Algorithm 1 behavior) and references prior methods.
+method,The text describes experimental procedures linking dependent variables to physical variations, detailing methodology.
+result,The text reports findings from prior work on phase 1 frequency impacting force, presenting specific outcomes.
+background,The text discusses potential delays due to bank conflicts, citing prior literature for context.
+background,The text reviews laboratory findings and antibody serologies from previous studies, providing background.
+background,The text summarizes existing knowledge on phage-bacteria interactions in oceans, offering context.
+method,The text specifies the use of histograms and references prior experimental setups, detailing methods.
+background,The text compares current findings to previous studies on urea transporters, contextualizing results.
+background,The text references prior work on organosolv pretreatment, establishing a comparative baseline.
+method,The text details DNA extraction and phylogenetic analysis protocols, describing methodological steps.
+background,The text reviews genetic sampling studies on Caribbean sea urchins, providing historical context.
+method,The text describes the computational system used for rendering, specifying technical methods.
+method,The text outlines a procedural technique (blunt probe use) for animal experiments, detailing methods.
+background,The text cites prior data on U.S. biofuel production sources, offering contextual statistics.
+result,The text presents experimental observations on checkpoint kinase effects, reporting specific findings.
+background,The text contrasts current sample characteristics with past studies, contextualizing differences.
+background,The text references prior research on Roma homogeneity perceptions, providing background.
+background,The text reviews the historical use of the Stroop task in psychology, establishing context.
+background,The text discusses debates about ambulation/defecation as emotionality indexes, citing prior work.
+background,The text introduces GPDP and references prior algorithmic frameworks, providing theoretical context.
+background,The text reviews epidemiological data on lymphoma incidence, offering disease context.
+result,The text reports experimental results on ICa characteristics in hair cells, presenting specific findings.
+background,The text discusses climatic influences cited in prior studies, contextualizing environmental factors.
+background,The text summarizes previous research on mental imagery and depression, providing theoretical background.
+result,The text presents data on miRNA genetic control from rodent models, reporting experimental outcomes.
+result,The text states performance benchmarks for Czech NER, presenting specific experimental results.
+method,The text specifies cross-validation protocols and dataset usage, detailing analytical methods.
+background,The text cites prior criteria for postoperative cavity communication, providing clinical context.
+method,The text describes visualization techniques for network analysis, detailing methodological approaches.
+method,The text outlines DNA extraction protocols from coral holobionts, specifying laboratory methods.
+background,The text references treatment guidelines for lymphoma, citing established medical practices.
+background,The text reviews polar coding applications in information theory, providing technical context.
+background,The text summarizes prior findings on compatible solutes and macromolecule stabilization, offering background.
+background,The text discusses cell cycle regulation mechanisms from existing literature, contextualizing the study.
+background,The text cites behavioral studies on nest burrow maintenance in animals, providing ecological context.
+background,The text reviews diagnostic accuracy studies for polygraphs, offering clinical background.
+background,The text references a prior NMR study on peptide interactions, providing biochemical context.
+background,The text summarizes previous work on HMGA1 as an ATM target, establishing molecular context.
+background,The text hypothesizes GST roles based on prior organismal studies, offering enzymatic context.
+method,The text details therapeutic intervention strategies from clinical studies, specifying methods.
+background,The text compares yeast recovery rates to prior studies, contextualizing experimental limitations.
+method,The text describes plethysmography for respiratory measurements, detailing methodological techniques.
+method,The text explains trait data collection protocols, specifying empirical methods.
+method,The text outlines patch-clamp recording procedures, detailing experimental techniques.
+background,The text reviews neuroprotective estrogen effects from prior in vivo studies, providing context.
+background,The text describes information worker ecosystems, citing prior technological frameworks.
+background,The text contrasts current self-management program effects with past studies, offering context.
+background,The text reviews air pollution studies across Chinese cities, providing environmental context.
+background,The text cites prior findings on rice D-type cyclins, establishing genetic context.
+background,The text references geological studies on Venusian crustal plateaus, offering planetary science context.
+result,The text identifies a specific PPR protein in C. reinhardtii, reporting experimental discovery.
+method,The text describes phylogenetic comparative methods and signal estimation, detailing analytical approaches.
+result,The text presents friction measurement results from a recent study, reporting experimental data.
+background,The text introduces a new method by comparing it to prior regularization techniques, providing context.
+background,The text references international autonomic function standards, offering clinical context.
+background,The text reviews prior studies on traction therapy, situating current research.
+background,The text summarizes parasitic lifecycle stages from existing literature, providing biological context.
+background,The text discusses brain region roles in temporal processing from prior research, offering neurocontext.
+method,The text specifies accelerometer validation against calorimetry, detailing measurement methods.
+method,The text describes structural usage from the Protein Data Bank, specifying experimental materials.
+background,The text reviews national health system structures, providing administrative context.
+background,The text lists GABAB receptor isoform studies, offering molecular biology context.
+method,The text details CBF image calculation methods, specifying computational techniques.
+background,The text cites prior RFID systems for surgical safety, providing technological context.
+result,The text confirms prior ROLL technique results, presenting experimental validation.
+background,The text reviews cargo trafficking protein properties from existing studies, offering context.
+result,The text corroborates gender differences in active commuting from prior studies, presenting findings.
+background,The text references autonomous system mission definitions from prior work, providing context.
+background,The text discusses psychostimulant properties cited in earlier pharmacology studies, offering background.
+background,The text summarizes centrosomal protein localization studies, providing cell biology context.
+background,The text reviews family structure implications from sociological studies, offering context.
+background,The text cites food system landscape studies, providing agricultural context.
+method,The text details digitonin fractionation for mitochondrial analysis, specifying laboratory methods.
+background,The text reviews congenital malformations linked to carbimazole, offering teratology context.
+background,The text discusses predator-prey models from ecological studies, providing theoretical background.
+background,The text compares tracheal collapse findings to prior diagnostic criteria, contextualizing results.
+background,The text references herbivore impact studies on understory composition, offering ecological context.
+result,The text presents lethal dose comparisons between aggregated/isolated conditions, reporting experimental data.
+background,The text summarizes serum sMHC biochemistry from prior studies, providing immunological context.
+background,The text discusses hardware limitations in memory subsystems, citing prior engineering challenges.
+background,The text contrasts current catechol estrogen results with past studies, offering biochemical context.
+method,The text outlines PCR product digestion and ligation steps, detailing molecular biology methods.
+method,The text describes bindin sequence inclusion in analyses, specifying genetic methodology.
+method,The text details EEG oscillatory activity analysis protocols, describing neurophysiological methods.
+background,The text references caffeine breath test normalization practices, providing pharmacological context.
+background,The text reviews cut-point selection criteria from prior statistical work, offering methodological context.
+background,The text discusses beta-cell function links to complications from earlier studies, providing medical context.
+background,The text compares COD removal efficiency to prior lab tests, contextualizing results.
+background,The text introduces Data Centric Storage concepts from WSN literature, providing technical context.
+background,The text cites child behavior assessment tools from prior developmental studies, offering context.
+method,The text specifies DRG/CPT/ICD9-CM code adaptation processes, detailing clinical classification methods.
+method,The text lists neuropsychological tests used in analyses, specifying assessment tools.
+background,The text reviews NusA-RNAP interaction studies from prior biochemistry work, offering context.
+background,The text summarizes landscape predation risk models from ecological studies, providing context.
+method,The text details SNP genotyping using Affymetrix arrays, specifying genomic methods.
+background,The text contrasts current Lumbini survey results with past data, offering epidemiological context.
+background,The text reviews STEC reservoirs in cattle/sheep from prior studies, providing microbiological context.
+method,The text describes pocket volume plotting against Q-SiteFinder data, detailing analytical methods.
+background,The text introduces multifractal product concepts from mathematical literature, offering theoretical context.
+method,The text specifies knee extensor force measurement setups, detailing biomechanical methods.
+background,The text reviews HSC roles in HTLV-1 infection from prior virology studies, providing context.
+background,The text cites victimization frequency data from prior social studies, offering context.
+background,The text discusses TRPA1 antagonist analgesic properties from pharmacological literature, providing context.
+method,The text details migration route analysis using geographic criteria, specifying anthropological methods.
+background,The text reviews cancer risks in A-T patients from prior medical studies, providing clinical context.
+result,The text presents binding kinetics data for FLNA fragments, reporting experimental results.
+background,The text introduces free-energy functions from statistical physics, offering theoretical context.
+background,The text summarizes GATA4's role in cardiac gene regulation from prior studies, providing molecular context.
+background,The text discusses Parke’s Error Duration Model in econometrics, offering statistical context.
+background,The text reviews Hg methylation processes from environmental studies, providing ecological context.
+method,The text outlines SVC equivalent circuit analysis, specifying electrical engineering methods.
+background,The text compares adaptive test designs to prior statistical approaches, contextualizing methods.
+background,The text reviews multi-agent system stability approaches from control theory, providing context.
+background,The text cites prior optical coefficient measurements in phantoms/brains, offering biophysical context.
+method,The text details transient antibody expression protocols in tobacco, specifying biotechnological methods.
+result,The text reports CgA level reductions as prognostic markers, presenting clinical findings.
+method,The text describes GFP-COQ7 mutant construction, detailing molecular biology techniques.
+background,The text reviews conflicting statin-cancer association studies, providing pharmacological context.
+background,The text discusses frugivory as an island phenomenon from ecological literature, offering context.
+background,The text cites population genetics studies on Aedes aegypti, providing entomological context.
+background,The text references prior radioligand binding studies in cerebellum, offering neuropharmacological context.
+result,The text presents prothrombotic disorder prevalence data, reporting clinical findings.
+method,The text details PTM site annotation from databases, specifying bioinformatics methods.
+background,The text references WiFi network co-location data from prior studies, providing technological context.
+background,The text reviews CSL protein phylogenetic analysis methods, offering genetic context.
+result,The text identifies CABIT domain presence in animal proteins, reporting bioinformatic findings.
+background,The text discusses sensor data compression models from prior engineering work, providing context.
+background,The text reviews efficiency analysis in frontier models from econometric literature, offering context.
+method,The text specifies antihypertensive treatment protocols per WHO guidelines, detailing clinical methods.
+background,The text introduces closed pattern mining algorithms from data mining literature, providing context.
+background,The text discusses HDAC1/2 functional overlap from prior molecular studies, offering epigenetic context.
+method,The text details SVM implementations and kernel testing, specifying machine learning methods.
+background,The text reviews myocardial scar size predictive value from prior cardiology studies, providing context.
+background,The text cites calcium signaling pathways from prior cell biology studies, offering context.
+background,The text discusses ROP risk factors from neonatal studies, providing clinical context.
+background,The text references distress vulnerability models from psychosocial studies, offering context.
+background,The text reviews ectopic pregnancy diagnostic criteria from prior OB/GYN studies, providing context.
+background,The text summarizes glutamate's role in epilepsy from neuropharmacological studies, offering context.
+background,The text cites prior toxin fraction identification in Phoneutria venom, providing biochemical context.
+background,The text reviews PerR regulon genes from prior microbiological studies, offering genetic context.
+method,The text details immunoaffinity purification protocols for tip links, specifying laboratory methods.
+background,The text compares MR-AC approaches to prior techniques, contextualizing methodological advancements.
+background,The text reviews Korean stop consonant studies from phonetic literature, providing linguistic context.
+background,The text discusses RDC applications in structural biology from prior work, offering biophysical context.
+result,The text presents β-arr2 binding inhibition data, reporting experimental results.
+background,The text reviews Ku DNA binding specificity from prior molecular studies, offering genetic context.
+background,The text contrasts iterative worker processes with prior algorithms, contextualizing methodology.
+background,The text discusses hypnotic side-effect implications from prior neuropharmacological studies, offering context.
+background,The text cites DRA contribution data from prior renal physiology studies, providing context.
+background,The text reviews Prdm1 roles in T-cell differentiation from immunological studies, offering context.
+background,The text discusses lysosomal trafficking mechanisms from prior cell biology work, providing context.
+background,The text introduces recent interest in the research area, citing multiple prior studies.
+background,The text contrasts trait/state anxiety in selective breeding, offering behavioral genetics context.
+method,The text specifies heart perfusion protocols with K-H buffer, detailing experimental methods.
+method,The text describes buccal swab collection procedures, specifying sampling techniques.
+result,The text reports LC3/p62 accumulation in Dox-induced myocardium, presenting pathological findings.
+background,The text discusses diet-induced carcinogenesis mechanisms from prior studies, providing context.
+result,The text presents adenoma size/postpartum data from clinical cases, reporting medical findings.
+result,The text reports force production variability metrics, presenting biomechanical data.
+background,The text contrasts COX-1/2 inhibitor mechanisms from pharmacological studies, offering context.
+result,The text identifies CMG helicase phosphorylation markers, reporting molecular biology findings.
+background,The text reviews excitatory transmission studies in wildtype mice, offering neurobiological context.
+background,The text discusses BDNF level differences in addiction models from prior neuroscience work, providing context.
+background,The text contrasts cardiac output data from prior physiological studies, offering comparative context.
+result,The text presents villous height/crypt depth correlations in Zambian populations, reporting clinical data.
+background,The text reviews cross-modal activation in CI users from neuroimaging studies, providing context.
+method,The text details home range fidelity calculation methods, specifying ecological analysis techniques.
+method,The text outlines theorem prover result formats, specifying computational methods.
+background,The text contrasts organic layer depth findings with prior Canadian studies, offering ecological context.
+method,The text describes genomic DNA extraction protocols, detailing molecular biology methods.
+background,The text extends dendrophylliid coral species counts from prior taxonomic work, providing context.
