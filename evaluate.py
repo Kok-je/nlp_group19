@@ -38,7 +38,7 @@ class ModelReport:
         Precision = TP / (TP + FP)
         """
         tp = table[0][0]
-        fp = table[0][0] + table[1][0]
+        fp = table[1][0]
         return tp / (tp + fp) if (tp + fp) != 0 else 0
 
     def recall(self,table):
@@ -47,7 +47,7 @@ class ModelReport:
         Recall = TP / (TP + FN)
         """
         tp = table[0][0]
-        fn = table[0][0] + table[0][1]
+        fn = table[0][1]
         return tp / (tp + fn) if (tp + fn) != 0 else 0
 
     def f1_score(self,table):
