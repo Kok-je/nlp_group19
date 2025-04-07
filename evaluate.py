@@ -231,10 +231,11 @@ def plot_reports(models, plot):
     plt.show()
 
 
-def evaluate_models(models, plot = False, file_path="./data/train.jsonl"):
+def evaluate_models(models, plot = False, file_path="./train_cleaned.csv"):
     # get train data
     # get test data
-    test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
+    # test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
+    test = pd.read_csv(file_path)["label"]
     for model in models:
         evaluate(model,test[(model.partition-1) * 1365 : model.partition * 1365 ].reset_index(drop=True) if model.partition else test)
         model.display_card()
