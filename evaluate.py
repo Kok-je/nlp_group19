@@ -109,6 +109,7 @@ def evaluate(model : ModelCard,test,cache=True):
         print("⚠️ Using cached report ⚠️")
         return
     fit = pd.read_csv(model.file_path)["model_classification"]
+    assert len(fit) == len(test)
     model.report = ModelReport(test,fit,model.model_name,model.version)
 
 def plot_reports(models, plot):
@@ -318,8 +319,10 @@ def evaluate_models(models, plot = False, file_path="./data/train_cleaned.jsonl"
         if model.partition:
             if model.partition == 200:
                 evaluate(model,test[:200])
-            elif 0 < model.partition < 7:
-                evaluate(model,test[(model.partition-1) * 1365 : model.partition * 1365 ].reset_index(drop=True))
+            elif 0 < model.partition < 6:
+                evaluate(model,test[(model.partition-1) * 1365 : model.partition * 1365].reset_index(drop=True))
+            elif model.partition == 6:
+                evaluate(model,test[5 * 1365:].reset_index(drop=True))
             else :
                 print(f"Invalid partition size, skipping evaluation for {model.model_name}.")
                 continue
@@ -348,17 +351,17 @@ def main():
                   "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b_clean/output.csv"),
         ModelCard("Gemma","2 No Section Name","experimenting with no section",
                    "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b_nosectionname/fourth_partition.csv", partition = 4),
-        ModelCard("Llama", "3.3 Instruct Turbo Clean", "Meta's latest open source model.",
-                  "Meta", 0, 70, "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama.csv", partition = 6),
-        ModelCard("Llama", "3.3 Instruct Turbo No Section Name", "Meta's latest open source model.",
-                  "Meta", 0, 70,
-                  "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama_no_section_name.csv", partition = 6),
-        ModelCard("GPT", "4o Cheater", "OpenAI's latest model.",
-                  "OpenAI", 0, 1000, "results/Teachers/GPT4o/cheated/output.csv"),
-        ModelCard("GPT", "4o", "OpenAI's latest model.",
-                  "OpenAI", 0, 1000, "results/Teachers/GPT4o/fair/output.csv"),
-        ModelCard("GPT", "4o api", "OpenAI's latest model.",
-                  "OpenAI", 0, 1000, "results/Teachers/GPT4o/api/output.csv"),
+        # ModelCard("Llama", "3.3 Instruct Turbo Clean", "Meta's latest open source model.",
+        #           "Meta", 0, 70, "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama.csv", partition = 6),
+        # ModelCard("Llama", "3.3 Instruct Turbo No Section Name", "Meta's latest open source model.",
+        #           "Meta", 0, 70,
+        #           "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama_no_section_name.csv", partition = 6),
+        # ModelCard("GPT", "4o Cheater", "OpenAI's latest model.",
+        #           "OpenAI", 0, 1000, "results/Teachers/GPT4o/cheated/output.csv"),
+        # ModelCard("GPT", "4o", "OpenAI's latest model.",
+        #           "OpenAI", 0, 1000, "results/Teachers/GPT4o/fair/output.csv"),
+        # ModelCard("GPT", "4o api", "OpenAI's latest model.",
+        #           "OpenAI", 0, 1000, "results/Teachers/GPT4o/api/output.csv",200),
         ModelCard("GPT", "4o full", "OpenAI's latest model.",
                   "OpenAI", 0, 1000, "results/Teachers/GPT4o/api/4o_full.csv"),
         # ModelCard("Gemini","2.5 Pro", "Google's latest model.",
@@ -371,8 +374,8 @@ def main():
                   "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200_no_reason.csv", 200),
         ModelCard("Gemma","3 no reason clean", "Google's latest model.",
                   "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200_no_reason_clean.csv", 200),
-        ModelCard("DeepSeek","R1", "DeepSeek's latest model.",
-                  "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/old/output_fixed.csv", 200),
+        # ModelCard("DeepSeek","R1", "DeepSeek's latest model.",
+        #           "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/old/output_fixed.csv", 200),
         ModelCard("DeepSeek","R1 full", "DeepSeek's latest model.",
                   "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/output.csv"),
         ModelCard("Llama","3.2", "Meta's smallest model.",
