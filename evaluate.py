@@ -309,7 +309,7 @@ def plot_reports(models, plot):
         # Show the plot
         plt.show()
 
-def evaluate_models(models, plot = False, file_path="./data/train.jsonl"):
+def evaluate_models(models, plot = False, file_path="./data/train_cleaned.jsonl"):
     # get train data
     # get test data
     test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
@@ -363,13 +363,15 @@ def main():
         ModelCard("Mistral","v1", "Mistral's first model.",
                   "Mistral", 0, 7, "results/student_models/mistral7b/first_partition_student_mistral7b.csv",1),
         ModelCard("Gemma","3", "Google's latest model.",
-                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first-partition.csv", 200),
+                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200.csv", 200),
         ModelCard("Gemma","3 no reason", "Google's latest model.",
-                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first-partition_no_reason.csv", 200),
+                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200_no_reason.csv", 200),
         ModelCard("Gemma","3 no reason clean", "Google's latest model.",
-                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first-partition_no_reason_clean.csv", 200),
+                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200_no_reason_clean.csv", 200),
         ModelCard("DeepSeek","R1", "DeepSeek's latest model.",
-                  "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/output_fixed.csv",200),
+                  "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/old/output_fixed.csv", 200),
+        ModelCard("DeepSeek","R1 full", "DeepSeek's latest model.",
+                  "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/output.csv"),
         ModelCard("Llama","3.2", "Meta's smallest model.",
                   "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition.csv",1),
         ModelCard("Llama","3.2 clean", "Meta's smallest model.",
