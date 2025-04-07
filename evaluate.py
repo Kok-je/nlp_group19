@@ -24,7 +24,7 @@ class ModelReport:
         Accuracy = (True predictions) / (Total predictions)
         """
         # Sum of the diagonal elements (correct predictions)
-        correct_predictions = sum(self.table.values[i, i] for i in range(0,2))
+        correct_predictions = sum(self.table.values[i, i] for i in range(0,3))
 
         # Sum of all elements (total predictions)
         total_predictions = self.table.values.sum()
@@ -313,6 +313,7 @@ def evaluate_models(models, plot = False, file_path="./data/train_cleaned.jsonl"
     # get train data
     # get test data
     test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
+    assert len(test) == 8194 # "Test data should be 8194 rows long"
     for model in models:
         if model.partition:
             if model.partition == 200:
@@ -352,12 +353,14 @@ def main():
         ModelCard("Llama", "3.3 Instruct Turbo No Section Name", "Meta's latest open source model.",
                   "Meta", 0, 70,
                   "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama_no_section_name.csv", partition = 6),
-        # ModelCard("GPT", "4o Cheater", "OpenAI's latest model.",
-        #           "OpenAI", 0, 1000, "results/Teachers/GPT4o/cheated/output.csv"),
+        ModelCard("GPT", "4o Cheater", "OpenAI's latest model.",
+                  "OpenAI", 0, 1000, "results/Teachers/GPT4o/cheated/output.csv"),
         ModelCard("GPT", "4o", "OpenAI's latest model.",
                   "OpenAI", 0, 1000, "results/Teachers/GPT4o/fair/output.csv"),
         ModelCard("GPT", "4o api", "OpenAI's latest model.",
                   "OpenAI", 0, 1000, "results/Teachers/GPT4o/api/output.csv"),
+        ModelCard("GPT", "4o full", "OpenAI's latest model.",
+                  "OpenAI", 0, 1000, "results/Teachers/GPT4o/api/4o_full.csv"),
         # ModelCard("Gemini","2.5 Pro", "Google's latest model.",
         #           "Google", 0, 1000, "results/Teachers/Gemini-2.5-Pro/Gemini_2.5_Pro.csv"),
         ModelCard("Mistral","v1", "Mistral's first model.",
