@@ -237,6 +237,9 @@ def plot_reports(models, plot):
 
     if plot == "full":
 
+
+        plt.figure(figsize=(12, 8))
+
         df['Accuracy'] = accuracies
 
         ax = sns.scatterplot(
@@ -270,7 +273,7 @@ def plot_reports(models, plot):
         # Set the title and labels
         plt.title('Large Language Model Performance: Accuracy vs Model Size by Author', fontsize=16, pad=20)
         plt.xlabel('Model Size (Billions of Parameters)', fontsize=14)
-        plt.ylabel('Macro F1 Score', fontsize=14)
+        plt.ylabel('Accuracy', fontsize=14)
 
         # use the range of F1 scores to set appropriate y-axis limits
         y_min = max(0, min(accuracies) - 0.05)
@@ -356,9 +359,9 @@ def main():
         # ModelCard("Llama", "3.3 Instruct Turbo No Section Name", "Meta's latest open source model.",
         #           "Meta", 0, 70,
         #           "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama_no_section_name.csv", partition = 6),
-        # ModelCard("GPT", "4o Cheater", "OpenAI's latest model.",
+        # ModelCard("GPT", "4o Cheater", "OpenAI's latest model.", # Duplicated data
         #           "OpenAI", 0, 1000, "results/Teachers/GPT4o/cheated/output.csv"),
-        # ModelCard("GPT", "4o", "OpenAI's latest model.",
+        # ModelCard("GPT", "4o", "OpenAI's latest model.",         # Duplicated data
         #           "OpenAI", 0, 1000, "results/Teachers/GPT4o/fair/output.csv"),
         # ModelCard("GPT", "4o api", "OpenAI's latest model.",
         #           "OpenAI", 0, 1000, "results/Teachers/GPT4o/api/output.csv",200),
@@ -382,6 +385,8 @@ def main():
                   "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition.csv",1),
         ModelCard("Llama","3.2 clean", "Meta's smallest model.",
                   "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition_clean.csv",1),
+        ModelCard("Our Teacher","v0","Our best teacher model so far",
+                  "NLP Team 19", 0, 900, "results/Teachers/Ours/deepseek-openai/deepseek_openai_combined.csv"),
         # ModelCard("Gemma","3 full", "Google's latest model.",
         #           "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/output.csv"),
         # ModelCard("Gemma","3 full clean", "Google's latest model.",
