@@ -25,9 +25,10 @@ def combine6(file_path):
     combined.to_csv(f"{file_path}/output.csv", index=False)
 
 def create_training_data(file_path,name = "training"):
-    data = pd.read_csv(file_path)[["model_classification","reasoning"]].rename(columns={"classification":"model_classification","teachers_reasoning":"reasoning"})
-    og = preprocess("./data/train.jsonl")[["sectionName", "string", "unique_id"]].rename(columns={"sectionName":"sectionName"})
-    combined = og.join(data, how="inner")
+    data = pd.read_csv(file_path)[["model_classification","reasoning"]].rename(columns={"classification":"model_classification","teachers_reasoning":"reasoning"}).reset_index(drop=True)
+    og = preprocess("./data/train.jsonl")[["sectionName", "string", "unique_id"]].rename(columns={"sectionName":"sectionName"}).reset_index(drop=True)
+    combined = og.merge(data,left_index = True,right_index = True, how="inner")
+
     assert combined.shape[0] == 8194
     combined = combined.map(lambda x : x if not isinstance(x,str) else x.replace("\n"," "),"ignore")
     combined.to_csv(f"Student_Training_Data/{name}.csv", index=False)
@@ -35,4 +36,4 @@ if __name__ == "__main__":
     combine6("results/Teachers/Llama/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free")
     combine6("results/Teachers/Gemma/Gemma2_27b")
     combine6("results/Teachers/DeepSeek/R1")
-    create_training_data("results/Teachers/GPT4o/fair/output.csv","GPT")
+    create_training_data("results/Teachers/Ours/LongLiveLLama.csv", "The_King")
