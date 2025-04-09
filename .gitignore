@@ -5,3 +5,5 @@ __pycache__/
 *.bin
 *.safetensors
 *.json
+trainer_output/
+processed_datset_example/
