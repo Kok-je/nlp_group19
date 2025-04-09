@@ -317,7 +317,8 @@ def evaluate_models(models, plot = False, file_path="./data/train_cleaned.jsonl"
     # get train data
     # get test data
     test = pd.read_json(path_or_buf=file_path, lines=True)["label"]
-    assert len(test) == 8194 # "Test data should be 8194 rows long"
+    if file_path == "/data/train_cleaned.jsonl":
+        assert len(test) == 8194 # "Test data should be 8194 rows long"
     for model in models:
         if model.partition:
             if model.partition == 200:
@@ -387,13 +388,16 @@ def main():
                   "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition_clean.csv",1),
         ModelCard("Our Teacher","v0","Our best teacher model so far",
                   "NLP Team 19", 0, 900, "results/Teachers/Ours/deepseek-openai/deepseek_openai_combined.csv"),
-        # ModelCard("Gemma","3 full", "Google's latest model.",
-        #           "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/output.csv"),
-        # ModelCard("Gemma","3 full clean", "Google's latest model.",
-        #           "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/output_clean.csv")
+        ModelCard("The King","v1","is back",
+                  "NLP Team 19", 0,1000,"results/Teachers/Ours/LongLiveLLama.csv")
     ]
     evaluate_models(model_list,"full")
-    print(model_list[-1].report.table)
+    testing = [
+    ModelCard("Gemma","3", "Google's latest model.",
+              "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/test/output.csv"),
+    ModelCard("Gemma","3 clean", "Google's latest model.",
+              "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/test/output_clean.csv")]
+    evaluate_models(testing, "full", "data/test.jsonl")
 
 
 if __name__ == "__main__":
