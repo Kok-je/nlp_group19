@@ -167,7 +167,7 @@ training_args = TrainingArguments(
     # Disable fp16 for MPS devices
     fp16=False,  # ← THIS IS CRUCIAL
     bf16=True,   # You can try enabling this if you have newer hardware
-    use_mps_device=True,  # Explicitly enable MPS
+    # use_mps_device=True,  # Explicitly enable MPS
     per_device_train_batch_size=4,
     per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
