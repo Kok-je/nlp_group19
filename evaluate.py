@@ -396,8 +396,11 @@ def main():
     ModelCard("Gemma","3", "Google's latest model.",
               "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/test/output.csv"),
     ModelCard("Gemma","3 clean", "Google's latest model.",
-              "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/test/output_clean.csv")]
+              "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/test/output_clean.csv"),
+    ModelCard("T5","non og- The King","T5 trained on non og code with The King",
+              "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained.csv")]
     evaluate_models(testing, "full", "data/test.jsonl")
+
 
 
 if __name__ == "__main__":
