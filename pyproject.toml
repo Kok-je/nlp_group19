@@ -38,6 +38,7 @@ typing-extensions = "4.13.0"
 tzdata = "2025.2"
 urllib3 = "2.3.0"
 together = "^1.5.4"
+scikit-learn = "^1.6.1"
 
 
 [build-system]

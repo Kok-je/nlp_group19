@@ -389,17 +389,28 @@ def main():
         ModelCard("Our Teacher","v0","Our best teacher model so far",
                   "NLP Team 19", 0, 900, "results/Teachers/Ours/deepseek-openai/deepseek_openai_combined.csv"),
         ModelCard("The King","v1","is back",
-                  "NLP Team 19", 0,1000,"results/Teachers/Ours/LongLiveLLama.csv")
+                  "NLP Team 19", 0,1000,"results/Teachers/Ours/LongLiveLLama.csv"),
+        ModelCard("T5","non og- The King","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train.csv"),
+        ModelCard("T5","non og- The King 1000","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train_1000.csv"),
+        ModelCard("T5","non og- The King 5 ep","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train_5_epoch.csv")
     ]
     evaluate_models(model_list,"full")
     testing = [
-    ModelCard("Gemma","3", "Google's latest model.",
-              "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/test/output.csv"),
-    ModelCard("Gemma","3 clean", "Google's latest model.",
-              "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/test/output_clean.csv"),
-    ModelCard("T5","non og- The King","T5 trained on non og code with The King",
-              "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained.csv")]
-    evaluate_models(testing, "full", "data/test.jsonl")
+    # ModelCard("Gemma","3", "Google's latest model.",
+    #           "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/test/output.csv"),
+    # ModelCard("Gemma","3 clean", "Google's latest model.",
+    #           "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/test/output_clean.csv"),
+        ModelCard("T5","non og- The King","T5 trained on non og code with The King",
+              "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_test.csv"),
+        ModelCard("T5","non og- The King 1000","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_test_1000.csv"),
+        ModelCard("T5","non og- The King 5 ep","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_test_5_epoch.csv")
+    ]
+    evaluate_models(testing, "full", "data/test_cleaned.jsonl")
 
 
 
