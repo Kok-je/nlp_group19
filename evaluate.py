@@ -121,6 +121,7 @@ def plot_reports(models, plot):
     model_sizes = []
     authors = []
     baselines = []
+    important = []
 
     if plot == "full":
         accuracies = []
@@ -133,6 +134,7 @@ def plot_reports(models, plot):
             macro_f1.append(model.report.macro_average(model.report.f1_score))
             model_sizes.append(model.size)
             authors.append(model.author)
+            important.append(model.important)
             if plot == "full":
                 accuracies.append(model.report.accuracy())
 
@@ -140,7 +142,8 @@ def plot_reports(models, plot):
         'Model Name': model_names,
         'Size': model_sizes,
         'Macro F1 Score': macro_f1,
-        'Author': authors
+        'Author': authors,
+        "Important": important
     })
 
     plt.figure(figsize=(12, 8))
@@ -165,11 +168,16 @@ def plot_reports(models, plot):
         )
 
     #Add Base Lines
-    for model in baselines:
+
+    # Categorical color palette
+    baseline_palette = sns.color_palette("Set2", len(baselines))
+
+    # Loop through baselines with their corresponding colors
+    for i, model in enumerate(baselines):
         # Add a horizontal line for the baseline model
         plt.axhline(
             y=model.report.macro_average(model.report.f1_score),
-            color='red',
+            color=baseline_palette[i],
             linestyle='--',
             label=f"{model.model_name} {model.version} (Baseline)"
         )
@@ -218,19 +226,24 @@ def plot_reports(models, plot):
     # Show the plot
     plt.show()
 
+    df2=df[df["Important"]]
+    df2.sort_values("Size",inplace=True)
 
-    sns.barplot(df, x='Model Name', y='Macro F1 Score', hue='Size', palette='viridis')
+    plt.figure(figsize=(12, 8))
+    sns.barplot(df2, x='Model Name', y='Macro F1 Score', hue='Size', palette='viridis')
+    plt.xticks(fontsize=8)#, rotation=45, ha='right')
     plt.xlabel('Model Name', fontsize=14)
     plt.ylabel('Macro F1 Score', fontsize=14)
 
     #Add Base Lines
     for model in baselines:
-        # Add a horizontal line for the baseline model
-        plt.axhline(
-            y=model.report.macro_average(model.report.f1_score),
-            color='red',
-            linestyle='--',
-            label=f"{model.model_name} {model.version} (Baseline)"
+        if model.important:
+            # Add a horizontal line for the baseline model
+            plt.axhline(
+                y=model.report.macro_average(model.report.f1_score),
+                color='red',
+                linestyle='--',
+                label=f"{model.model_name} {model.version} (Baseline)"
         )
     plt.title('Macro F1 Score by Model Name', fontsize=16)
     plt.show()
@@ -339,22 +352,22 @@ def evaluate_models(models, plot = False, file_path="./data/train_cleaned.jsonl"
     plot_reports(models, plot)
 
 def main():
-    plt.style.use("dark_background")
+    #plt.style.use("dark_background")
     model_list = [
         ModelCard("Gemma", "2", "Google's largest latest open source model.",
-                  "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b/output.csv"),
+                  "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b/output.csv",important=False),
         ModelCard("Llama", "3.3 Instruct Turbo", "Meta's latest open source model.",
                   "Meta", 0, 70, "results/Teachers/Llama/meta-llama_Llama-3.3-70B-Instruct-Turbo-Free/output.csv"),
-        ModelCard("Random", "Indiscriminate", "Random model.", "Nikhil",
-                  0, 0, "results/baselines/Completely_random/output.csv"),
+        # ModelCard("Random", "Indiscriminate", "Random model.", "Nikhil",
+        #           0, 0, "results/baselines/Completely_random/output.csv",important=False),
         ModelCard("Random", "Proportional", "Random model.", "Nikhil",
                   0, 0, "results/baselines/Proportionally_random/output.csv"),
-        ModelCard("Single Class", "Majority", "Why even try.", "Nikhil",
-                  0, 0, "results/baselines/Majority/output.csv"),
+        # ModelCard("Single Class", "Majority", "Why even try.", "Nikhil",
+        #           0, 0, "results/baselines/Majority/output.csv",important=False),
         ModelCard("Gemma", "2 Cleaned", "Google's largest latest open source model.",
-                  "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b_clean/output.csv"),
+                  "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b_clean/output.csv",important=False),
         ModelCard("Gemma","2 No Section Name","experimenting with no section",
-                   "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b_nosectionname/fourth_partition.csv", partition = 4),
+                   "Google", 0, 27, "results/Teachers/Gemma/Gemma2_27b_nosectionname/fourth_partition.csv", partition = 4,important=False),
         # ModelCard("Llama", "3.3 Instruct Turbo Clean", "Meta's latest open source model.",
         #           "Meta", 0, 70, "results/Teachers/Llama/meta-llama-corrected/sixth_partition_llama.csv", partition = 6),
         # ModelCard("Llama", "3.3 Instruct Turbo No Section Name", "Meta's latest open source model.",
@@ -371,11 +384,11 @@ def main():
         # ModelCard("Gemini","2.5 Pro", "Google's latest model.",
         #           "Google", 0, 1000, "results/Teachers/Gemini-2.5-Pro/Gemini_2.5_Pro.csv"),
         ModelCard("Mistral","v1", "Mistral's first model.",
-                  "Mistral", 0, 7, "results/student_models/mistral7b/first_partition_student_mistral7b.csv",1),
+                  "Mistral", 0, 7, "results/student_models/mistral7b/first_partition_student_mistral7b.csv",1,False),
         ModelCard("Gemma","3", "Google's latest model.",
-                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200.csv", 200),
+                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200.csv", 200,False),
         ModelCard("Gemma","3 no reason", "Google's latest model.",
-                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200_no_reason.csv", 200),
+                  "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200_no_reason.csv", 200,False),
         ModelCard("Gemma","3 no reason clean", "Google's latest model.",
                   "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200_no_reason_clean.csv", 200),
         # ModelCard("DeepSeek","R1", "DeepSeek's latest model.",
@@ -383,19 +396,23 @@ def main():
         ModelCard("DeepSeek","R1 full", "DeepSeek's latest model.",
                   "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/output.csv"),
         ModelCard("Llama","3.2", "Meta's smallest model.",
-                  "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition.csv",1),
+                  "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition.csv",1,False),
         ModelCard("Llama","3.2 clean", "Meta's smallest model.",
-                  "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition_clean.csv",1),
+                  "Meta", 0, 1, "results/student_models/llama3.2_1b/Llama-3.2-1B-Instruct_first_partition_clean.csv",1,False),
         ModelCard("Our Teacher","v0","Our best teacher model so far",
-                  "NLP Team 19", 0, 900, "results/Teachers/Ours/deepseek-openai/deepseek_openai_combined.csv"),
+                  "NLP Team 19", 0, 900, "results/Teachers/Ours/deepseek-openai/deepseek_openai_combined.csv",important=False),
         ModelCard("The King","v1","is back",
                   "NLP Team 19", 0,1000,"results/Teachers/Ours/LongLiveLLama.csv"),
         ModelCard("T5","non og- The King","T5 trained on non og code with The King",
-                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train.csv"),
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train.csv",important=False),
         ModelCard("T5","non og- The King 1000","T5 trained on non og code with The King",
-                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train_1000.csv"),
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train_1000.csv",important=False),
         ModelCard("T5","non og- The King 5 ep","T5 trained on non og code with The King",
-                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train_5_epoch.csv")
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train_5_epoch.csv"),
+        ModelCard("T5","non og- The King 5 ep baseline","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 0,"results/Trained/predictions_t5_trained_train_baseline.csv"),
+        ModelCard("T5","non og- The King small baseline","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_small_trained_train_baseline.csv",important=False)
     ]
     evaluate_models(model_list,"full")
     testing = [
@@ -408,7 +425,11 @@ def main():
         ModelCard("T5","non og- The King 1000","T5 trained on non og code with The King",
                   "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_test_1000.csv"),
         ModelCard("T5","non og- The King 5 ep","T5 trained on non og code with The King",
-                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_test_5_epoch.csv")
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_test_5_epoch.csv"),
+        ModelCard("T5","non og- The King 5 ep baseline","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 0,"results/Trained/predictions_t5_trained_test_baseline.csv"),
+        ModelCard("T5","non og- The King small baseline","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_small_trained_test_baseline.csv")
     ]
     evaluate_models(testing, "full", "data/test_cleaned.jsonl")
 
