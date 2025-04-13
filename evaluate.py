@@ -412,7 +412,11 @@ def main():
         ModelCard("T5","non og- The King 5 ep baseline","T5 trained on non og code with The King",
                   "NLP Team 19", 0, 0,"results/Trained/predictions_t5_trained_train_baseline.csv"),
         ModelCard("T5","non og- The King small baseline","T5 trained on non og code with The King",
-                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_small_trained_train_baseline.csv",important=False)
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_small_trained_train_baseline.csv",important=False),
+        ModelCard("T5","alpha 5","alpha 0.5",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_full_train_5.csv",important = False),
+        ModelCard("T5","alpha 8","alpha 0.8",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_full_train_8.csv",important = False),
     ]
     evaluate_models(model_list,"full")
     testing = [
