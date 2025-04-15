@@ -23,14 +23,14 @@ fig, ax1 = plt.subplots(figsize=(10, 6))
 color = 'tab:blue'
 ax1.set_xlabel('Epoch')
 ax1.set_ylabel('Loss', color=color)
-sns.lineplot(x='epoch', y='loss', data=data, ax=ax1, color=color, label='Loss')
+sns.lineplot(x='epoch', y='loss', data=data, ax=ax1, color=color, label='Loss',legend=False)
 ax1.tick_params(axis='y', labelcolor=color)
 
 # Create secondary y-axis for grad_norm
 ax2 = ax1.twinx()
 color = 'tab:orange'
 ax2.set_ylabel('Gradient Norm', color=color)
-sns.lineplot(x='epoch', y='grad_norm', data=data, ax=ax2, color=color, label='Gradient Norm')
+sns.lineplot(x='epoch', y='grad_norm', data=data, ax=ax2, color=color, label='Gradient Norm',legend=False)
 ax2.tick_params(axis='y', labelcolor=color)
 
 # # Create third y-axis for learning_rate
