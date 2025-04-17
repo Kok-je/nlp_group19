@@ -20,7 +20,8 @@ Ever wondered if a tiny model could outsmart a giant LLM? **We proved it can!** 
 │   ├── teacher rationale generation/  # Teacher model rationale generation
 │   ├── student training data/    # Data for student model training
 │   ├── results (student, teacher outputs)/  # Model outputs and results
-│   ├── phase1_v2/               # Implementation of distillation
+│   ├── phase1_v2/               # Implementation of distillation 
+│   │   ├── final_training_code.ipynb # Final code used for training
 │   ├── data/                    # Dataset and processed data
 │   ├── titan-job.slurm         # Slurm job script for Titan
 │   ├── a100-job.slurm          # Slurm job script for A100
