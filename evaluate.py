@@ -122,6 +122,8 @@ def plot_reports(models, plot):
     authors = []
     baselines = []
     important = []
+    model_versions = []
+    model_raw_names = []
 
     if plot == "full":
         accuracies = []
@@ -131,6 +133,8 @@ def plot_reports(models, plot):
             baselines.append(model)
         else:
             model_names.append(model.model_name + " " + model.version)
+            model_raw_names.append(model.model_name)
+            model_versions.append(model.version)
             macro_f1.append(model.report.macro_average(model.report.f1_score))
             model_sizes.append(model.size)
             authors.append(model.author)
@@ -140,6 +144,8 @@ def plot_reports(models, plot):
 
     df = pd.DataFrame({
         'Model Name': model_names,
+        'Model_Name': model_raw_names,
+        'Model Version' : model_versions,
         'Size': model_sizes,
         'Macro F1 Score': macro_f1,
         'Author': authors,
@@ -326,6 +332,24 @@ def plot_reports(models, plot):
         # Show the plot
         plt.show()
 
+
+        abs =df[df["Model_Name"] == "T5"]
+        plt.figure(figsize=(12, 8))
+        sns.barplot(abs, x='Model Version', y='Macro F1 Score', palette='Set2')
+        plt.xticks(fontsize=14)#, rotation=45, ha='right')
+        plt.ylim(0.6, 0.9)
+        plt.title('Ablation Study', fontsize=16, pad=20)
+        plt.xlabel('Model Version', fontsize=14)
+        plt.ylabel('Macro F1 Score', fontsize=14)
+
+        plt.figtext(
+            0.5, 0.01,
+            "Note: Only a portion of the y axis is shown to highlight the differences.",
+            ha='center',
+            fontsize=11,
+            bbox=dict(boxstyle='round,pad=0.5', facecolor='white', alpha=0.5)
+        )
+
 def evaluate_models(models, plot = False, file_path="./data/train_cleaned.jsonl"):
     # get train data
     # get test data
@@ -387,9 +411,9 @@ def main():
                   "Mistral", 0, 7, "results/student_models/mistral7b/first_partition_student_mistral7b.csv",1,False),
         ModelCard("Gemma","3", "Google's latest model.",
                   "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200.csv", 200,False),
-        ModelCard("Gemma","3 no reason", "Google's latest model.",
+        ModelCard("Gemma","3 label only", "Google's latest model.",
                   "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200_no_reason.csv", 200,False),
-        ModelCard("Gemma","3 no reason clean", "Google's latest model.",
+        ModelCard("Gemma","3 label only clean", "Google's latest model.",
                   "Google", 0, 1, "results/student_models/Gemma/Gemma-1b/train/first200_no_reason_clean.csv", 200),
         # ModelCard("DeepSeek","R1", "DeepSeek's latest model.",
         #           "DeepSeek", 0, 671, "results/Teachers/DeepSeek/R1/old/output_fixed.csv", 200),
@@ -403,20 +427,20 @@ def main():
                   "NLP Team 19", 0, 900, "results/Teachers/Ours/deepseek-openai/deepseek_openai_combined.csv",important=False),
         ModelCard("The King","v1","is back",
                   "NLP Team 19", 0,1000,"results/Teachers/Ours/LongLiveLLama.csv"),
-        ModelCard("T5","non og- The King","T5 trained on non og code with The King",
+        ModelCard("T5","3 epochs","T5 trained on non og code with The King",
                   "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train.csv",important=False),
-        ModelCard("T5","non og- The King 1000","T5 trained on non og code with The King",
+        ModelCard("T5","1000 samples","T5 trained on non og code with The King",
                   "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train_1000.csv",important=False),
-        ModelCard("T5","non og- The King 5 ep","T5 trained on non og code with The King",
-                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train_5_epoch.csv"),
-        ModelCard("T5","non og- The King 5 ep baseline","T5 trained on non og code with The King",
+        ModelCard("T5","No reason","T5 trained on non og code with The King",
                   "NLP Team 19", 0, 0,"results/Trained/predictions_t5_trained_train_baseline.csv"),
-        ModelCard("T5","non og- The King small baseline","T5 trained on non og code with The King",
+        ModelCard("T5","T5 small","T5 trained on non og code with The King",
                   "NLP Team 19", 0, 1,"results/Trained/predictions_t5_small_trained_train_baseline.csv",important=False),
-        ModelCard("T5","alpha 5","alpha 0.5",
-                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_full_train_5.csv",important = False),
-        ModelCard("T5","alpha 8","alpha 0.8",
-                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_full_train_8.csv",important = False),
+        # ModelCard("T5","⍺=0.8","alpha 0.8",
+        #           "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_full_train_8.csv",important = False),
+        # ModelCard("T5","⍺=0.5","alpha 0.5",
+        #           "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_full_train_5.csv",important = False),
+        ModelCard("T5","Original","T5 trained on non og code with The King",
+                  "NLP Team 19", 0, 1,"results/Trained/predictions_t5_trained_train_5_epoch.csv")
     ]
     evaluate_models(model_list,"full")
     testing = [
